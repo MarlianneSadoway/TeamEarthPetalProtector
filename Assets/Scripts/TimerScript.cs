@@ -6,7 +6,8 @@ using TMPro;
 public class TimerScript : MonoBehaviour
 {
 
-    public float remainingTime = 150; // Total time in seconds
+    public float totalTime = 150; // Total time in seconds
+    private float remainingTime;
     public bool timeRunning = false; // Trigger to start and stop timer
     public TMP_Text timeText; // UI Element for timer
     
@@ -14,6 +15,7 @@ public class TimerScript : MonoBehaviour
     void Start()
     {
         // Start Timer
+        remainingTime = totalTime;
         timeRunning = true;
     }
 
