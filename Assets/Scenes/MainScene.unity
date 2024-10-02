@@ -557,13 +557,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 911797779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f428aeb21104f8aaf78d8f02c4273c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2803ffe512c36154baa42aee2a112596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugPrefab: {fileID: 8415620405521482482, guid: e264c6ccc4909493ab4265a2b383df78, type: 3}
+  bugPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
   spawnInterval: 1
-  spawnDuration: 300
-  spawnDistance: 10
+  spawnDuration: 150
+  spawnDistance: 4
 --- !u!4 &911797781
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,11 +1244,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1886912852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06468b67ac3d1d745a03ace35319d799, type: 3}
+  m_Script: {fileID: 11500000, guid: 54b4dfb7428d2cf45aa57e8758a5b83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waterController: {fileID: 176469779}
-  button: {fileID: 1886912856}
 --- !u!114 &1886912855
 MonoBehaviour:
   m_ObjectHideFlags: 0
