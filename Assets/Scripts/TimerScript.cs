@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -29,14 +30,19 @@ public class TimerScript : MonoBehaviour
             remainingTime -= Time.deltaTime;
             // Update TimerUI
             TimerUI(remainingTime);
-        }
-        else
-        {
-            // Set remainging time to zero so time isn't displayed as negative
-            remainingTime = 0;
-            // Disable Timer
-            timeRunning = false;
-            // Transition to Game over here
+
+            // Check if time is up
+            if (remainingTime <= 0)
+            {
+                // Set remainging time to zero so time isn't displayed as negative
+                remainingTime = 0;
+                // Disable Timer
+                timeRunning = false;
+
+                // Transition to Game over here by going back to the menu 
+                SceneManager.LoadScene("MenuScene");
+            }
+
         }
     }
 
