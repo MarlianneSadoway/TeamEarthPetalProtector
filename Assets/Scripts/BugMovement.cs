@@ -29,6 +29,17 @@ public class BugMovement : MonoBehaviour
         // Move the bug
         transform.Translate(direction * speed * Time.deltaTime);
 
+        // Destroy the bug if it has gone off-screen so that there aren't a ton of extra bug gameObjects 
+        // Based on the 3240x1920 screen size 
+        if (transform.position.x < -1620) // Off the left side
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+        else if (transform.position.x > 1620) // Off the right side
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+
     }
 
     // OnTriggerEnter2D is called when the bug collides with the plant
