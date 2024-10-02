@@ -26,13 +26,18 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // DO NOT REMOVE: 
-        // If the bug reaches the plant and the index is not >= 0, Destroy a heart and decrement index
-        //if (BUGHIT && index >= 0)
-        //{
-        //    Destroy(heartList[index]);
-        //    index--;
-        //}
         
+        
+    }
+
+    // Method to remove 1 heart from the health bar 
+    public void RemoveHeart()
+    {
+        // Check if there are hearts left to remove
+        if (index >= 0)
+        {
+            Destroy(heartList[index]); // Destroy the heart at the current index
+            index--; // Set index to the next heart
+        }
     }
 }
