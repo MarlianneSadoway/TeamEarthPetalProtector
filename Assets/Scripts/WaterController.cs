@@ -11,6 +11,7 @@ public class WaterController : MonoBehaviour
     public float interval; // Time between drops disappearing
     private float timer; // Countdown timer for water drops disappearing
     private int index; // Position in dropList
+    public int newDrops;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,28 @@ public class WaterController : MonoBehaviour
             Destroy(dropList[index]);
             index--;
             timer = interval;
+            if (index < 0){index = 0;}
         }
         // Decrement timer
         timer -= Time.deltaTime;
+    }
+
+    public void AddWater()
+    {
+        Debug.Log("Clicked!");
+        for (int i = 0; i < newDrops; i++)
+        {
+            if (index >= numDrops-1)
+            {
+                break; 
+                
+            }
+            else
+            {
+               Debug.Log(index);
+                dropList[index+1] = Instantiate(waterDrop, new Vector3((float)(location.position.x + (index+1)*0.6),location.position.y,location.position.z), Quaternion.identity);
+                index++;
+            }
+        }
     }
 }
