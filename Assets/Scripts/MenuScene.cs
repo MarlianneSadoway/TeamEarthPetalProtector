@@ -19,6 +19,6 @@ public class MenuScene : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 }
