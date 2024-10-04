@@ -45,17 +45,17 @@ public class WaterController : MonoBehaviour
         Debug.Log("Clicked!");
         for (int i = 0; i < newDrops; i++)
         {
-            if (index >= numDrops-1)
-            {
-                break; 
-                
-            }
+            if (index >= numDrops-1) {break;}
             else
             {
-               Debug.Log(index);
                 dropList[index+1] = Instantiate(waterDrop, new Vector3((float)(location.position.x + (index+1)*0.6),location.position.y,location.position.z), Quaternion.identity);
                 index++;
             }
         }
+    }
+
+    public int get_index()
+    {
+        return index;
     }
 }
