@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class WaterController : MonoBehaviour
         {
             dropList[i] = Instantiate(waterDrop, new Vector3((float)(location.position.x + i*0.6),location.position.y,location.position.z), Quaternion.identity);
         }
+
     }
 
     // Update is called once per frame
@@ -32,9 +34,14 @@ public class WaterController : MonoBehaviour
         if (timer <= 0 && index >=0)
         {
             Destroy(dropList[index]);
+            dropList[index] = null; // Mark waterdrop as destroyed
             index--;
-            timer = interval;
-            if (index < 0){index = 0;}
+            timer = interval; // Reset timer 
+            if (index < 0) // All water is gone so game over 
+            {
+                // Transition to game over here by going back to the menu 
+                SceneManager.LoadScene("MenuScene");
+            }
         }
         // Decrement timer
         timer -= Time.deltaTime;
