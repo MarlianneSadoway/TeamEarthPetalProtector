@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
     public GameObject heart; // Prefab for heart icon 
     private GameObject[] heartList; // List of heart Instances
     public int numHearts; // Number of hearts
-    public Transform location; // Location for left most heart to appear
-    public float interval; // Time between hearts disappearing
+    public Transform location; // Location for top most heart to appear
     private int index; // Position in heartList
 
     // Start is called before the first frame update
@@ -19,7 +19,8 @@ public class HealthController : MonoBehaviour
         index = numHearts - 1;
         for (int i = 0; i < numHearts; i++)
         {
-            heartList[i] = Instantiate(heart, new Vector3((float)(location.position.x + i * 0.6), location.position.y, location.position.z), Quaternion.identity);
+            // Display the hearts vertically
+            heartList[i] = Instantiate(heart, new Vector3(location.position.x, (float)(location.position.y - (i * 0.6)), location.position.z), Quaternion.identity);
         }
     }
 
@@ -36,8 +37,16 @@ public class HealthController : MonoBehaviour
         // Check if there are hearts left to remove
         if (index >= 0)
         {
-            Destroy(heartList[index]); // Destroy the heart at the current index
+            GameObject heartToRemove = heartList[index];
+            heartToRemove.AddComponent<HeartFall>(); // Makes the heart fall downwards off the screen 
             index--; // Set index to the next heart
+        }
+
+        // If there are no hearts left, restart the game 
+        if (index < 0)
+        {
+            // Transition to Game over here by going back to the menu 
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
