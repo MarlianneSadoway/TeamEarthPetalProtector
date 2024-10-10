@@ -13,6 +13,9 @@ public class WaterController : MonoBehaviour
     private float timer; // Countdown timer for water drops disappearing
     private int index; // Position in dropList
     public int newDrops;
+    public GameObject gameOverUI; // When all water is lost, this is the game over popup
+    public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,18 +42,31 @@ public class WaterController : MonoBehaviour
             timer = interval; // Reset timer 
             if (index < 0) // All water is gone so game over 
             {
-                // Transition to game over here by going back to the menu 
-                SceneManager.LoadScene("MenuScene");
+                GameOverLost gameOver = gameOverUI.GetComponent<GameOverLost>();
+                gameOver.ShowGameOver();
+
+                // Start the coroutine to delay before loading the menu scene
+                StartCoroutine(GameOverTransition());
             }
         }
         // Decrement timer
         timer -= Time.deltaTime;
     }
 
+     // Coroutine to handle the delay before loading the menu scene
+     IEnumerator GameOverTransition()
+    {
+        // Wait for the delayBeforeMenu seconds
+        yield return new WaitForSeconds(delayBeforeMenu);
+
+        // Transition to the menu scene
+        SceneManager.LoadScene("MenuScene");
+    }
+
     public void AddWater()
     {
-        Debug.Log("Clicked!");
-        for (int i = 0; i < newDrops; i++)
+    Debug.Log("Clicked!");
+    for (int i = 0; i < newDrops; i++)
         {
             if (index >= numDrops-1) {break;}
             else

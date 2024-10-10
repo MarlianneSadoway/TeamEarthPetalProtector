@@ -31,8 +31,14 @@ public class BugMovement : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
         // Destroy the bug if it has gone off-screen so that there aren't a ton of extra bug gameObjects 
-        // Based on the 3240x1920 screen size 
- 
+        if (transform.position.x < -9) // Off the left side (Left side is -8.44)
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+        if (transform.position.x > 9) // Off the right side (Right side is 8.44)
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
         if (transform.position.y > 6) // Off the top (Top is 5)
         {
             Destroy(gameObject); // Destroy the bug object
