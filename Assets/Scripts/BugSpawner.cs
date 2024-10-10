@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BugSpawner : MonoBehaviour
 {
-    public GameObject bugPrefab; // Reference to the bug prefab
+    public GameObject beetlePrefab; // Reference to the Beetle prefab
+    public GameObject flyPrefab; // Reference to the Fly prefab
+
     public float spawnInterval = 1f; // Time between spawns
     public float spawnDuration = 150f; // Total duration of spawning 
     public float spawnDistance = 4f; // Distance from the camera to spawn bugs
@@ -30,7 +32,7 @@ public class BugSpawner : MonoBehaviour
     void SpawnBug()
     {
         // Random Y position within a range
-        float yPosition = Random.Range(-3.5f, 4.25f); // Adjust based on camera size
+        float yPosition = Random.Range(-3.5f, 4.25f); 
 
         // Randomly choose the left or right for X position
         float xPosition = (Random.Range(0, 2) == 0) ? -spawnDistance : spawnDistance;
@@ -38,8 +40,10 @@ public class BugSpawner : MonoBehaviour
         // Set the spawn position with X on the left or right, and random Y
         Vector3 spawnPosition = new Vector3(xPosition, yPosition, 0f);
 
-        // Instantiate the bug at the chosen position
-        Instantiate(bugPrefab, spawnPosition, Quaternion.identity);
+        // Randomly choose which bug prefab to spawn (0 = beetle, 1 = fly)
+        GameObject selectedBugPrefab = (Random.Range(0, 2) == 0) ? beetlePrefab : flyPrefab;
+
+        // Instantiate the selected bug at the chosen position
+        Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity);
     }
 }
-

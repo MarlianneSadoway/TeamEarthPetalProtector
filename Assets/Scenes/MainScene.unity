@@ -560,7 +560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2803ffe512c36154baa42aee2a112596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
+  beetlePrefab: {fileID: 8415620405521482482, guid: 6d64c27e59ad43d42bc81d199a17f849, type: 3}
+  flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
   spawnInterval: 1
   spawnDuration: 150
   spawnDistance: 4
