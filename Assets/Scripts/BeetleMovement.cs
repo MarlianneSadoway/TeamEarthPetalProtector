@@ -13,8 +13,9 @@ public class BugMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set direction randomly to left or right
-        direction = Random.Range(0, 2) == 0 ? Vector2.right : Vector2.left;
+        // Set the bug's initial random X position at the top of the screen
+        float randomX = Random.Range(-5f, 5f); 
+        transform.position = new Vector3(randomX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the bug's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
@@ -27,18 +28,11 @@ public class BugMovement : MonoBehaviour
     void Update()
     {
         // Move the bug
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
 
         // Destroy the bug if it has gone off-screen so that there aren't a ton of extra bug gameObjects 
         // Based on the 3240x1920 screen size 
-        if (transform.position.x < -9) // Off the left side (Left side is -8.44)
-        {
-            Destroy(gameObject); // Destroy the bug object
-        }
-        if (transform.position.x > 9) // Off the right side (Right side is 8.44)
-        {
-            Destroy(gameObject); // Destroy the bug object
-        }
+ 
         if (transform.position.y > 6) // Off the top (Top is 5)
         {
             Destroy(gameObject); // Destroy the bug object
