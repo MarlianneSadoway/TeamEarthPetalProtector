@@ -39,8 +39,20 @@ public class FlyMovement : MonoBehaviour
         // Move the fly downward while also oscillating in the X direction
         transform.position = new Vector3(newX, transform.position.y - (speed * Time.deltaTime), 0f);
 
-        // Destroy the fly if it has gone off-screen at the bottom
-        if (transform.position.y < -6f)
+        // Destroy the bug if it has gone off-screen so that there aren't a ton of extra bug gameObjects 
+        if (transform.position.x < -9) // Off the left side (Left side is -8.44)
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+        if (transform.position.x > 9) // Off the right side (Right side is 8.44)
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+        if (transform.position.y > 6) // Off the top (Top is 5)
+        {
+            Destroy(gameObject); // Destroy the bug object
+        }
+        if (transform.position.y < -6f) // Destroy the fly if it has gone off-screen at the bottom (Bottom is -5)
         {
             Destroy(gameObject);
         }

@@ -11,7 +11,9 @@ public class TimerScript : MonoBehaviour
     private float remainingTime;
     public bool timeRunning = false; // Trigger to start and stop timer
     public TMP_Text timeText; // UI Element for timer
-    
+    public GameObject gameWonUI; // Popup/overlay to show game won msg to player 
+    public float delayBeforeMenu = 4f; // Delay to show Game Won before loading the MenuScene
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +41,25 @@ public class TimerScript : MonoBehaviour
                 // Disable Timer
                 timeRunning = false;
 
-                // Transition to Game over here by going back to the menu 
-                SceneManager.LoadScene("MenuScene");
+
+                GameWon gameWon = gameWonUI.GetComponent<GameWon>();
+                gameWon.ShowGameWon();
+
+                // Start the coroutine to wait before loading the menu scene
+                StartCoroutine(GameWonTransition());
             }
 
         }
+    }
+
+    // Coroutine to handle the delay before transitioning to the menu scene
+    IEnumerator GameWonTransition()
+    {
+        // Wait for the delayBeforeMenu seconds
+        yield return new WaitForSeconds(delayBeforeMenu);
+
+        // Transition to the menu scene
+        SceneManager.LoadScene("MenuScene");
     }
 
     void TimerUI(float time)
