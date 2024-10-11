@@ -10,6 +10,8 @@ public class HealthController : MonoBehaviour
     public int numHearts; // Number of hearts
     public Transform location; // Location for top most heart to appear
     private int index; // Position in heartList
+    public GameObject gameOverUI; // When all hearts are lost, this is the game over popup
+    public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +44,24 @@ public class HealthController : MonoBehaviour
             index--; // Set index to the next heart
         }
 
-        // If there are no hearts left, restart the game 
+        // If there are no hearts left, show Game Over and restart the game 
         if (index < 0)
         {
-            // Transition to Game over here by going back to the menu 
-            SceneManager.LoadScene("MenuScene");
+            GameOverLost gameOver = gameOverUI.GetComponent<GameOverLost>();
+            gameOver.ShowGameOver();
+
+            // Start the coroutine to delay before loading the menu scene
+            StartCoroutine(GameOverTransition());
         }
+    }
+
+    // Coroutine to handle the delay before loading the menu scene
+    IEnumerator GameOverTransition()
+    {
+        // Wait for the delayBeforeMenu seconds
+        yield return new WaitForSeconds(delayBeforeMenu);
+
+        // Transition to the menu scene
+        SceneManager.LoadScene("MenuScene");
     }
 }

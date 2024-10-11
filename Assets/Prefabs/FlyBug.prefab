@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2598087328380684091}
   - component: {fileID: 5273314873005157557}
   - component: {fileID: 433312223687021173}
-  - component: {fileID: 5808204816886558224}
   - component: {fileID: 2383116067587347339}
   - component: {fileID: -7063711668826566683}
   - component: {fileID: 6752111539762914003}
+  - component: {fileID: -1475249234065261470}
   m_Layer: 0
   m_Name: FlyBug
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9245283, g: 0.70625734, b: 0.02180491, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,19 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5808204816886558224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8415620405521482482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c71bbb469472443a7271391241aedb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2.5
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4
@@ -212,3 +199,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57853d716ac33054393dfbd82fb6ba97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1475249234065261470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415620405521482482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538afe04cff2941088c2cd8c6811adcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.5
+  amplitude: 1.5
+  frequency: 2
