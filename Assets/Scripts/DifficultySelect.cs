@@ -7,10 +7,12 @@ using UnityEngine;
 public class DifficultySelect : MonoBehaviour
 {
     public GameObject SelectDiff;
+    private AudioSource soundEffect;
 
     // Start is called before the first frame update
     void Start()
     {
+        soundEffect = GetComponent<AudioSource>();
         GetComponent<TapGesture>().Tapped += tappedHandler;
     }
 
@@ -22,6 +24,7 @@ public class DifficultySelect : MonoBehaviour
 
     private void tappedHandler(object sender, EventArgs e)
     {
+        soundEffect.Play();
         SelectDiff.SetActive(true);
     }
 }
