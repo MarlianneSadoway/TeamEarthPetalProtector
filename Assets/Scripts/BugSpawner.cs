@@ -9,7 +9,7 @@ public class BugSpawner : MonoBehaviour
 
     public float spawnInterval = 1f; // Time between spawns
     public float spawnDuration = 150f; // Total duration of spawning 
-    public float spawnDistance = 4f; // Distance from the camera to spawn bugs
+    public float spawnDistance = 2.8f; // Distance from the camera to spawn bugs
 
     private float spawnTime; // Timer to track elapsed spawn time
 
