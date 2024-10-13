@@ -20,7 +20,7 @@ public class HeartFall : MonoBehaviour
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
 
         // Check if the heart has moved off the bottom of the screen and destroy it
-        if (transform.position.y <= -1620)
+        if (transform.position.y <= -5)
         {
             Destroy(gameObject); // Destroy the heart
         }

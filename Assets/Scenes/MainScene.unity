@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1500, y: 900}
+  m_AnchoredPosition: {x: -450, y: 700}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176469779
@@ -535,10 +535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterDrop: {fileID: 4726712791456823368, guid: a884fa42ac784c14d9f75a8cae296e6e, type: 3}
-  numDrops: 10
+  numDrops: 5
   location: {fileID: 176469778}
   interval: 15
-  newDrops: 2
+  newDrops: 1
   gameOverUI: {fileID: 2119461412}
   delayBeforeMenu: 4
 --- !u!1 &234405172
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
   spawnInterval: 2
   spawnDuration: 150
-  spawnDistance: 4
+  spawnDistance: 2.8
 --- !u!4 &911797781
 Transform:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 852.54}
+  m_AnchoredPosition: {x: -213.67001, y: 852.54}
   m_SizeDelta: {x: 652.66, y: 144.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084281318
@@ -2331,8 +2331,8 @@ Transform:
   m_GameObject: {fileID: 1443535642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.75, y: 4.3, z: -1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: 1.5, y: 4.45, z: -1}
+  m_LocalScale: {x: 0.05539, y: 0.05539, z: 0.5539}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2504,7 +2504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1500, y: 500}
+  m_AnchoredPosition: {x: -450, y: 500}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507379669
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 4726712791456823368, guid: 97a03c21476129c49b3a77fbf831cb9c, type: 3}
-  numHearts: 10
+  numHearts: 5
   location: {fileID: 1507379668}
   gameOverUI: {fileID: 2119461412}
   delayBeforeMenu: 4
@@ -3043,8 +3043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1317, y: -200}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: 400, y: -200}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1886912854
 MonoBehaviour:
