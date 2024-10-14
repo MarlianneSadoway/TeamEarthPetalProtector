@@ -196,7 +196,7 @@ MonoBehaviour:
   OnTap:
     m_PersistentCalls:
       m_Calls: []
-  numberOfTapsRequired: 1
+  numberOfTapsRequired: 3
   timeLimit: Infinity
   distanceLimit: Infinity
   combinePointers: 0

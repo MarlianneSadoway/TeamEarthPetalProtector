@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameWon : MonoBehaviour
 {
 
-    public GameObject gameWonUI; // The popup overlay to show game is won 
+    public GameObject gameWonUI; // The popup overlay to show game is won
+    public AudioSource bgMusic; // The background musio 
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class GameWon : MonoBehaviour
 
     public void ShowGameWon()
     {
+        bgMusic.Stop();
         gameWonUI.SetActive(true); // Activate the Game Won UI
     }
 }

@@ -13,6 +13,7 @@ public class WateringCan : MonoBehaviour
     public int interval = 10;
     private float timer;
     private bool decrement = false;
+    public AudioSource waterSound;
     
     void Start()
     {
@@ -46,11 +47,12 @@ public class WateringCan : MonoBehaviour
 
     private void tappedHandler(object sender, System.EventArgs e)
     {
-        if(button.enabled = true)
+        if(button.enabled)
         {
             button.enabled = false;
             decrement = true;
             waterController.SendMessage("AddWater");
+            waterSound.Play();
         }
     }
 }
