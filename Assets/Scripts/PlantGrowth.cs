@@ -6,7 +6,7 @@ public class PlantGrowth : MonoBehaviour
 {
 
     public float growthSpeed = 0.027f; // how fast the plant grows during the game
-    public float maxHeight = 5.0f; // the maximum height of the plant 
+    public float maxHeight = 4.0f; // the maximum height of the plant 
 
 
     // Start is called before the first frame update
