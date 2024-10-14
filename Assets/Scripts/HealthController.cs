@@ -12,6 +12,7 @@ public class HealthController : MonoBehaviour
     private int index; // Position in heartList
     public GameObject gameOverUI; // When all hearts are lost, this is the game over popup
     public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
+    public AudioSource heartPop;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class HealthController : MonoBehaviour
         // Check if there are hearts left to remove
         if (index >= 0)
         {
+            heartPop.Play();
             GameObject heartToRemove = heartList[index];
             heartToRemove.AddComponent<HeartFall>(); // Makes the heart fall downwards off the screen 
             index--; // Set index to the next heart

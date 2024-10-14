@@ -25,6 +25,11 @@ public class DifficultySelect : MonoBehaviour
     private void tappedHandler(object sender, EventArgs e)
     {
         soundEffect.Play();
+        Invoke("nextMenu", (float)0.25);
+    }
+
+    private void nextMenu()
+    {
         SelectDiff.SetActive(true);
     }
 }
