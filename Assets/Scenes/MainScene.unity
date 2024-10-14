@@ -511,7 +511,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176469777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterDrop: {fileID: 4726712791456823368, guid: a884fa42ac784c14d9f75a8cae296e6e, type: 3}
+  emptyDrop: {fileID: 4726712791456823368, guid: 867a4ed2978195044975e80872e7dede, type: 3}
   numDrops: 5
   location: {fileID: 176469778}
   interval: 15
