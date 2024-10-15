@@ -5,7 +5,7 @@ using UnityEngine;
 public class StemGrowth : MonoBehaviour
 {
     public float growthDuration = 150f;  // Duration of growth in seconds (2.5 minutes)
-    private float endPositionY = -2.8f;
+    private float endPositionY = -3f;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
 
