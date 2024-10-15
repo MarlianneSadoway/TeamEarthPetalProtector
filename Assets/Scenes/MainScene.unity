@@ -1635,6 +1635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beetlePrefab: {fileID: 8415620405521482482, guid: 6d64c27e59ad43d42bc81d199a17f849, type: 3}
   flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
+  waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
+  mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
   spawnInterval: 2
   spawnDuration: 150
   spawnDistance: 2.8
@@ -2502,6 +2504,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1254242901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254242902}
+  m_Layer: 0
+  m_Name: TransformStation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254242902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254242901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.5, z: -0.03392602}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333850801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,3 +4093,4 @@ SceneRoots:
   - {fileID: 234405174}
   - {fileID: 1110867945}
   - {fileID: 1443535644}
+  - {fileID: 1254242902}
