@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +27,8 @@ public class WaterController : MonoBehaviour
         timer = interval;
         for (int i = 0; i < numDrops; i++)
         {
-            dropList[i] = Instantiate(waterDrop, new Vector3((float)(location.position.x + i*0.6),location.position.y,location.position.z), Quaternion.identity);
+            // Display the drops vertically
+            dropList[i] = Instantiate(waterDrop, new Vector3(location.position.x, (float)(location.position.y - (i*0.6)), location.position.z), Quaternion.identity);
         }
 
     }
@@ -80,10 +82,12 @@ public class WaterController : MonoBehaviour
             if (index >= numDrops-1) {break;}
             else
             {
-                // Replace the empty drop with a water drop
-                Destroy(dropList[index+1]);
-                dropList[index+1] = Instantiate(waterDrop, new Vector3((float)(location.position.x + (index+1)*0.6),location.position.y,location.position.z), Quaternion.identity);
                 index++;
+                // Store the position of the empty drop 
+                Vector3 dropPosition = dropList[index].transform.position;
+                // Replace the empty drop with a water drop
+                Destroy(dropList[index]);
+                dropList[index] = Instantiate(waterDrop, dropPosition, Quaternion.identity);
             }
         }
     }
