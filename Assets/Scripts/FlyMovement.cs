@@ -5,8 +5,8 @@ using UnityEngine;
 public class FlyMovement : MonoBehaviour
 {
     public float speed = 3.5f; // Speed of the bug
-    public float amplitude = 2f; // How wide the fly oscillates in the X direction
-    public float frequency = 2f; // How fast the fly oscillates
+    public float amplitude = 1.25f; // How wide the fly oscillates in the X direction
+    public float frequency = 1.5f; // How fast the fly oscillates
 
     private float startX; // To store the initial X position
     private float timeElapsed; // Time tracking for sine wave movement
@@ -17,7 +17,7 @@ public class FlyMovement : MonoBehaviour
     void Start()
     {
         // Set the fly's initial random X position at the top of the screen
-        startX = Random.Range(-5f, 5f);
+        startX = Random.Range(-1.5f, 1f);
         transform.position = new Vector3(startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the bug's Rigidbody2D component
