@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MothMovement : MonoBehaviour
 {
-    public float speed = 2.5f; // Speed of the moth
+    public float speed = 2f; // Speed of the moth
     public float amplitude = 0.5f; // How far the moth oscillates in the X direction
     public float frequency = 1f; // How fast the moth oscillates
 
