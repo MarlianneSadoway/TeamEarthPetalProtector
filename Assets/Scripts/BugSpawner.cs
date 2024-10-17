@@ -9,7 +9,7 @@ public class BugSpawner : MonoBehaviour
     public GameObject waspPrefab; // Reference to the Wasp prefab
     public GameObject mothPrefab; // Reference to the Moth prefab
 
-    public float spawnInterval = 0.5f; // Time between spawns
+    public float spawnInterval = 8f; // Time between spawns
     public float spawnDuration = 150f; // Total duration of spawning 
     public float spawnDistance = 2f; // Distance from the camera to spawn bugs
 

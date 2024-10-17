@@ -1792,7 +1792,7 @@ MonoBehaviour:
   flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
   waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
   mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
-  spawnInterval: 2
+  spawnInterval: 10
   spawnDuration: 150
   spawnDistance: 2.8
 --- !u!4 &911797781
@@ -3071,6 +3071,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 2119461412}
   delayBeforeMenu: 4
   heartPop: {fileID: 1507379670}
+  plant: {fileID: 1039128165}
 --- !u!82 &1507379670
 AudioSource:
   m_ObjectHideFlags: 0

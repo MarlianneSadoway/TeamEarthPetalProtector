@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeetleMovement : MonoBehaviour
 {
-    public float speed = 2.5f; // Speed of the beetle
+    public float speed = 2f; // Speed of the beetle
     private Transform target; // Target position (Transform Station)
     private Rigidbody2D rb; // The beetle's Rigidbody2D component
     private HealthController healthController; // Reference to the HealthController script

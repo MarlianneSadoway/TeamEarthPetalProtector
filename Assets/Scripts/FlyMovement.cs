@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyMovement : MonoBehaviour
 {
-    public float speed = 3.5f; // Speed of the bug
+    public float speed = 3f; // Speed of the bug
     public float amplitude = 1.25f; // How wide the fly oscillates in the X direction
     public float frequency = 1.5f; // How fast the fly oscillates
 
