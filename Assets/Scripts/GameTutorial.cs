@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameTutorial : MonoBehaviour
 {
     public GameObject Instruct;
+    public GameObject FirstInstruct;
     private AudioSource soundEffect;
 
     // Start is called before the first frame update
@@ -31,5 +32,6 @@ public class GameTutorial : MonoBehaviour
     private void nextMenu()
     {
         Instruct.SetActive(true);
+        FirstInstruct.SetActive(true);
     }
 }

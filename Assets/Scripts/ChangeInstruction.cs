@@ -8,9 +8,11 @@ public class ChangeInstruction : MonoBehaviour
 {
     public GameObject SwitchPage;
     public GameObject CurrentPage;
+    private AudioSource soundEffect;
     // Start is called before the first frame update
     void Start()
     {
+        soundEffect = GetComponent<AudioSource>();
         GetComponent<TapGesture>().Tapped += tappedHandler;
     }
 
@@ -21,6 +23,11 @@ public class ChangeInstruction : MonoBehaviour
     }
     
     private void tappedHandler(object sender, EventArgs e)
+    {
+        soundEffect.Play();
+        Invoke("nextMenu", (float)0.25);
+    }
+    private void nextMenu()
     {
         CurrentPage.SetActive(false);
         SwitchPage.SetActive(true);
