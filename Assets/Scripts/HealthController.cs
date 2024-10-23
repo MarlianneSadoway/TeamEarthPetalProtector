@@ -26,7 +26,7 @@ public class HealthController : MonoBehaviour
         for (int i = 0; i < numHearts; i++)
         {
             // Display the hearts vertically
-            heartList[i] = Instantiate(heart, new Vector3(location.position.x, (float)(location.position.y - (i * 0.6)), location.position.z), Quaternion.identity);
+            heartList[i] = Instantiate(heart, new Vector3(location.position.x, (float)(location.position.y - (i * 0.6)), location.position.z), Quaternion.identity, gameObject.transform);
         }
 
         //plant = GameObject.FindWithTag("Plant");

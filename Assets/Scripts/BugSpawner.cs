@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class BugSpawner : MonoBehaviour
@@ -47,6 +48,6 @@ public class BugSpawner : MonoBehaviour
         GameObject selectedBugPrefab = (bugType == 0) ? beetlePrefab : (bugType == 1) ? flyPrefab : (bugType == 2) ? waspPrefab : mothPrefab; // Moth
 
         // Instantiate the selected bug at the chosen position
-        Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity, gameObject.transform);
     }
 }
