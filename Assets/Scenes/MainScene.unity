@@ -787,6 +787,7 @@ MonoBehaviour:
   newDrops: 1
   gameOverUI: {fileID: 2119461412}
   delayBeforeMenu: 4
+  wateringCan: {fileID: 1886912854}
 --- !u!1 &234405172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,6 +3966,9 @@ MonoBehaviour:
   button: {fileID: 1886912856}
   interval: 10
   waterSound: {fileID: 1886912859}
+  shakeDuration: 1
+  shakeTilt: 45
+  shakeSpeed: 0.2
 --- !u!114 &1886912855
 MonoBehaviour:
   m_ObjectHideFlags: 0

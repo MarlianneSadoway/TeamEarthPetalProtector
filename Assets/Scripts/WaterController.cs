@@ -17,6 +17,7 @@ public class WaterController : MonoBehaviour
     public int newDrops;
     public GameObject gameOverUI; // When all water is lost, this is the game over popup
     public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
+    public WateringCan wateringCan;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,6 @@ public class WaterController : MonoBehaviour
             // Display the drops vertically
             dropList[i] = Instantiate(waterDrop, new Vector3(location.position.x, (float)(location.position.y - (i*0.6)), location.position.z), Quaternion.identity);
         }
-
     }
 
     // Update is called once per frame
@@ -72,6 +72,11 @@ public class WaterController : MonoBehaviour
         Destroy(dropList[currentIndex]);
         // Instantiate the emptyDrop in the stored position
         dropList[currentIndex] = Instantiate(emptyDrop, dropPosition, Quaternion.identity);
+        // Make the watering can shake to alert the player that the plant needs water
+        if (wateringCan != null)
+        {
+            StartCoroutine(wateringCan.Shake());
+        }
     }
 
     public void AddWater()
