@@ -29,7 +29,7 @@ public class WaterController : MonoBehaviour
         for (int i = 0; i < numDrops; i++)
         {
             // Display the drops vertically
-            dropList[i] = Instantiate(waterDrop, new Vector3(location.position.x, (float)(location.position.y - (i*0.6)), location.position.z), Quaternion.identity);
+            dropList[i] = Instantiate(waterDrop, new Vector3(location.position.x, (float)(location.position.y - (i*0.6)), location.position.z), Quaternion.identity, gameObject.transform);
         }
     }
 
@@ -71,7 +71,7 @@ public class WaterController : MonoBehaviour
         // Destroy the current waterDrop
         Destroy(dropList[currentIndex]);
         // Instantiate the emptyDrop in the stored position
-        dropList[currentIndex] = Instantiate(emptyDrop, dropPosition, Quaternion.identity);
+        dropList[currentIndex] = Instantiate(emptyDrop, dropPosition, Quaternion.identity, gameObject.transform);
         // Make the watering can shake to alert the player that the plant needs water
         if (wateringCan != null)
         {
@@ -92,7 +92,7 @@ public class WaterController : MonoBehaviour
                 Vector3 dropPosition = dropList[index].transform.position;
                 // Replace the empty drop with a water drop
                 Destroy(dropList[index]);
-                dropList[index] = Instantiate(waterDrop, dropPosition, Quaternion.identity);
+                dropList[index] = Instantiate(waterDrop, dropPosition, Quaternion.identity, gameObject.transform);
             }
         }
     }

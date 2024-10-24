@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fd8e0bf60cc9b614db73dd0f6eba9436
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - menu: {fileID: 2394079138477706345, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  - gameEasy: {instanceID: 0}
+  - gameHard: {instanceID: 0}
+  - screen1: {instanceID: 0}
+  - screen2: {instanceID: 0}
+  - screen3: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
