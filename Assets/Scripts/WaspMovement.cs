@@ -11,6 +11,8 @@ public class WaspMovement : MonoBehaviour
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The wasp's Rigidbody2D component
     private HealthController healthController; // Reference to the HealthController script
+    public float repelForce = 2.5f;
+    private bool isRepelled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +30,18 @@ public class WaspMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Time-based horizontal oscillation
-        timeElapsed += Time.deltaTime;
+        // Only move the wasp if it hasn't been repelled
+        if (!isRepelled)
+        {
+            // Time-based horizontal oscillation
+            timeElapsed += Time.deltaTime;
 
-        // Calculate the new X position using a sine wave for smooth Z shape movement
-        float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
+            // Calculate the new X position using a sine wave for smooth Z shape movement
+            float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
-        // Move the wasp downward while also oscillating in the X direction
-        transform.position += new Vector3(newX * Time.deltaTime, -speed * Time.deltaTime, 0f);
+            // Move the wasp downward while also oscillating in the X direction
+            transform.position += new Vector3(newX * Time.deltaTime, -speed * Time.deltaTime, 0f);
+        }
 
         // Destroy the wasp if it has gone off-screen to prevent unnecessary gameObjects 
         if (transform.position.y < -6) // Destroy the wasp if it has gone off-screen at the bottom
@@ -49,14 +55,30 @@ public class WaspMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Plant"))
         {
-            // The wasp has reached the plant, so update the health bar
+            // Reduce health
             if (healthController != null)
             {
-                healthController.RemoveHeart(); // Call method to remove 1 heart from the health bar
+                healthController.RemoveHeart();
             }
 
-            // Destroy the wasp gameObject because it has reached the plant
-            Destroy(gameObject);
+            // Mark the wasp as repelled to stop normal movement
+            isRepelled = true;
+
+            // Delay repel 
+            Invoke("Repel", 1f);
         }
+    }
+
+    // Method to repel the wasp in a random direction
+    private void Repel()
+    {
+        // Randomly choose between left (-1) and right (1)
+        float repelDirectionX = Random.Range(0, 2) == 0 ? -1f : 1f;
+
+        // Set repel direction as left or right with some upward movement
+        Vector2 repelDirection = new Vector2(repelDirectionX, 1f).normalized;
+
+        // Apply a force to make the wasp fly away to the left or right
+        rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
 }
