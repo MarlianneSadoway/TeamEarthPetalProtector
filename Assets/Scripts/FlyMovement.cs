@@ -12,6 +12,8 @@ public class FlyMovement : MonoBehaviour
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The bug's Rigidbody2D component
     private HealthController healthController; // Reference to the HealthController script
+    public float repelForce = 2.5f;
+    private bool isRepelled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,8 @@ public class FlyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+{
+    if (!isRepelled)
     {
         // Time-based horizontal oscillation
         timeElapsed += Time.deltaTime;
@@ -38,39 +42,46 @@ public class FlyMovement : MonoBehaviour
 
         // Move the fly downward while also oscillating in the X direction
         transform.position = new Vector3(newX, transform.position.y - (speed * Time.deltaTime), 0f);
-
-        // Destroy the bug if it has gone off-screen so that there aren't a ton of extra bug gameObjects 
-        if (transform.position.x < -9) // Off the left side (Left side is -8.44)
-        {
-            Destroy(gameObject); // Destroy the bug object
-        }
-        if (transform.position.x > 9) // Off the right side (Right side is 8.44)
-        {
-            Destroy(gameObject); // Destroy the bug object
-        }
-        if (transform.position.y > 6) // Off the top (Top is 5)
-        {
-            Destroy(gameObject); // Destroy the bug object
-        }
-        if (transform.position.y < -6f) // Destroy the fly if it has gone off-screen at the bottom (Bottom is -5)
-        {
-            Destroy(gameObject);
-        }
     }
+
+    // Destroy the bug if it has gone off-screen
+    if (transform.position.x < -9 || transform.position.x > 9 || transform.position.y > 6 || transform.position.y < -6f)
+    {
+        Destroy(gameObject);
+    }
+}
+
 
     // OnTriggerEnter2D is called when the fly collides with the plant
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Plant"))
         {
-            // The fly has reached the plant, so update the health bar
+            // Reduce health
             if (healthController != null)
             {
-                healthController.RemoveHeart(); // Call method to remove 1 heart from the health bar
+                healthController.RemoveHeart();
             }
 
-            // Destroy the fly gameObject because it has reached the plant
-            Destroy(gameObject);
+            // Set the beetle as repelled to stop normal movement
+            isRepelled = true;
+
+            // Delay repel 
+            Invoke("Repel", 1f);
         }
     }
+
+    // Method to repel the beetle in a random direction
+    private void Repel()
+    {
+        // Randomly choose between left (-1) and right (1)
+        float repelDirectionX = Random.Range(0, 2) == 0 ? -1f : 1f;
+
+        // Set repel direction as left or right with some upward movement
+        Vector2 repelDirection = new Vector2(repelDirectionX, 1f).normalized;
+
+        // Apply a force to make the beetle fly away to the left or right
+        rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
+    }
 }
+
