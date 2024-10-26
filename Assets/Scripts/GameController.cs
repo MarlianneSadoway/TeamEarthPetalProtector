@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameController : MonoBehaviour
 {
@@ -9,43 +11,24 @@ public class GameController : MonoBehaviour
     public GameObject gameEasy;
     public GameObject gameHard;
 
-    [Header("Camera")]
-    public Camera camera;
-
-    [Header("Screens")]
-    public Transform screen1;
-    public Transform screen2;
-    public Transform screen3;
+    [Header("Cameras")]
+    public Camera camera1;
+    public Camera camera2;
+    public Camera camera3;
 
     // Game Instances
-    private GameObject game1;
-    private GameObject game2;
-    private GameObject game3;
-
+    private GameObject[] games;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Assign Camera to required locations in the menu prefab
-        // This will need to be done on anything with a canvas
-        menu.transform.Find("Canvas").GetComponent<Canvas>().worldCamera = camera;
-        menu.transform.Find("SelectDiff").GetComponent<Canvas>().worldCamera = camera;
-        menu.transform.Find("Instruct").GetComponent<Canvas>().worldCamera = camera;
-
+        games = new GameObject[3];
         // Create Game instances
-        game1 = Instantiate(menu);
-        game2 = Instantiate(menu);
-        game3 = Instantiate(menu);
-
-        //Set Screen Locations
-        game1.transform.position = screen1.transform.position;
-        game2.transform.position = screen2.transform.position;
-        game3.transform.position = screen3.transform.position;
+        createMenu(0);
+        createMenu(1);
+        createMenu(2);
 
         // Resize Games as Necessary
-        game1.transform.localScale = new Vector3(0.5f,0.5f,0f);
-        game2.transform.localScale = new Vector3(0.5f,0.5f,0f);
-        game3.transform.localScale = new Vector3(0.5f,0.5f,0f);
     }
 
     // Update is called once per frame
@@ -53,4 +36,24 @@ public class GameController : MonoBehaviour
     {
         
     }
+
+    private void createMenu(int index)
+    {
+        Camera cam = camera1;
+        switch (index)
+        {
+            case 1:
+            cam = camera2;
+                break;
+            case 2:
+            cam = camera3;
+                break;
+        }
+        
+        games[index] = Instantiate(menu, cam.transform);
+        games[0].transform.Find("Canvas").GetComponent<Canvas>().worldCamera = cam;
+        games[0].transform.Find("Instruct").GetComponent<Canvas>().worldCamera = cam;
+        games[0].transform.Find("SelectDiff").GetComponent<Canvas>().worldCamera = cam;
+    }
+
 }
