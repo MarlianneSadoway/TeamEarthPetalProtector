@@ -14,6 +14,7 @@ public class HealthController : MonoBehaviour
     public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
     public AudioSource heartPop;
     public GameObject plant; 
+    public GameIndex gameIndex;
     private SpriteRenderer plantSprite;
     private Color originalColor;
 
@@ -96,6 +97,6 @@ public class HealthController : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeMenu);
 
         // Transition to the menu scene
-        SceneManager.LoadScene("MenuScene");
+        gameIndex.swapMenu();
     }
 }

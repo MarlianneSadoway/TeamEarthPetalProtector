@@ -9,6 +9,7 @@ public class PlayEasyScene : MonoBehaviour
 {
     public GameObject SelectDiff;
     private AudioSource soundEffect;
+    public GameIndex rootIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class PlayEasyScene : MonoBehaviour
    private void tappedHandler(object sender, EventArgs e) 
     {
         soundEffect.Play();
-        Invoke("nextMenu", (float)0.25);
+        //Invoke("nextMenu", (float)0.25);
+        rootIndex.Invoke("swapGameEasy", 0.25f);
     }
     
     private void nextMenu()

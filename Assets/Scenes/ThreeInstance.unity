@@ -543,14 +543,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 2394079138477706345, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
-  gameEasy: {fileID: 0}
+  gameEasy: {fileID: 5141846261363778291, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
   gameHard: {fileID: 0}
   camera1: {fileID: 1343937806}
   camera2: {fileID: 1135116346}
   camera3: {fileID: 1420000197}
-  screen1: {fileID: 0}
-  screen2: {fileID: 0}
-  screen3: {fileID: 0}
 --- !u!1 &1420000194
 GameObject:
   m_ObjectHideFlags: 0
