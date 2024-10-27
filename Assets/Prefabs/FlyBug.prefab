@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.11999999, y: 0.11538462, z: 0.11538462}
+  m_LocalScale: {x: -0.11999997, y: -0.1153846, z: -0.1153846}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 0d7dd1204871c0d4b8eb32077e8333d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -481,6 +481,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
   - {fileID: 8300000, guid: 3d6311deef79b974e9d82736ab485194, type: 3}
   - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
+  damagedBug:
+  - {fileID: 21300000, guid: c44092c7200f8e640bf5ea5400ce8a2d, type: 3}
+  fullHealth: 2
 --- !u!114 &-1475249234065261470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +499,7 @@ MonoBehaviour:
   speed: 1.5
   amplitude: 1.5
   frequency: 2
+  repelForce: 2.5
 --- !u!82 &2269903412349747003
 AudioSource:
   m_ObjectHideFlags: 0
