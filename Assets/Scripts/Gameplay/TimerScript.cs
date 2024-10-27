@@ -13,6 +13,7 @@ public class TimerScript : MonoBehaviour
     public TMP_Text timeText; // UI Element for timer
     public GameObject gameWonUI; // Popup/overlay to show game won msg to player 
     public float delayBeforeMenu = 4f; // Delay to show Game Won before loading the MenuScene
+    public GameIndex gameIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,8 @@ public class TimerScript : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeMenu);
 
         // Transition to the menu scene
-        SceneManager.LoadScene("MenuScene");
+        //SceneManager.LoadScene("MenuScene");
+        gameIndex.swapMenu();
     }
 
     void TimerUI(float time)
