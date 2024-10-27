@@ -33,8 +33,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.24038462, z: 0.24038462}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: -0.25, y: 0.24038462, z: 0.24038462}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7095c1dc3ddc9fb4cbbe98873765d714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -171,6 +171,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
   - {fileID: 8300000, guid: 3d6311deef79b974e9d82736ab485194, type: 3}
   - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
+  damagedBug:
+  - {fileID: 21300000, guid: 9a1402e0a5fbbf54b9dd448165220e12, type: 3}
+  fullHealth: 2
 --- !u!114 &317752772584371528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +189,7 @@ MonoBehaviour:
   speed: 1
   amplitude: 1
   frequency: 1
+  repelForce: 2.5
 --- !u!60 &7913031558344788866
 PolygonCollider2D:
   m_ObjectHideFlags: 0

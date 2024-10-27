@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2598087328380684091}
   - component: {fileID: 5273314873005157557}
-  - component: {fileID: 433312223687021173}
   - component: {fileID: 5808204816886558224}
   - component: {fileID: 2383116067587347339}
   - component: {fileID: -7063711668826566683}
@@ -34,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.098, z: 0}
+  m_LocalScale: {x: 0.1, y: -0.098, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: fc2cf4fff5955ca47994f033455c4ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.33, y: 1.33}
   m_AdaptiveModeThreshold: 0.5
@@ -91,41 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &433312223687021173
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8415620405521482482}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &5808204816886558224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  repelForce: 2.5
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4
@@ -220,6 +185,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
   - {fileID: 8300000, guid: 3d6311deef79b974e9d82736ab485194, type: 3}
   - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
+  damagedBug:
+  - {fileID: 21300000, guid: f98f6d5ee160dbb47be53abc033af248, type: 3}
+  - {fileID: 21300000, guid: 6e87335f536386f4597935c0b522a32c, type: 3}
+  fullHealth: 3
 --- !u!60 &7833387302644036301
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +230,7 @@ PolygonCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Points:
     m_Paths:
     - - {x: -0.515, y: -3.78}
