@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   repelForce: 2.5
+  spawnRoot: {fileID: 0}
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4

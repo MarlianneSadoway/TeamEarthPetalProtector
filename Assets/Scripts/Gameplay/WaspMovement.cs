@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class WaspMovement : MonoBehaviour
 {
+    [Header("Wasp Configuration")]
     public float speed = 3f; // Speed of the wasp
     public float amplitude = 1.5f; // Amplitude for Z-shape movement
     public float frequency = 5f; // Frequency of the oscillation
+    public Transform spawnRoot; // Transform to link bugs to prefab instance
 
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The wasp's Rigidbody2D component
-    private HealthController healthController; // Reference to the HealthController script
+    public HealthController healthController; // Reference to the HealthController script
     public float repelForce = 2.5f;
     private bool isRepelled = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnRoot = gameObject.transform.parent.transform;
         // Set the wasp's initial position at the top of the screen
-        transform.position = new Vector3(Random.Range(-1.5f, 1f), 6f, 0f); // Y = 6 is off the top of the screen
+        transform.position = new Vector3(spawnRoot.position.x + Random.Range(-1.5f, 1f), 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the wasp's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
 
         // Get the HealthController from the scene
-        healthController = FindObjectOfType<HealthController>();
+        //healthController = FindObjectOfType<HealthController>();
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class WaspMovement : MonoBehaviour
         }
 
         // Destroy the wasp if it has gone off-screen to prevent unnecessary gameObjects 
-        if (transform.position.y < -6) // Destroy the wasp if it has gone off-screen at the bottom
+        if (transform.position.y < -6f || transform.position.x < -8f || transform.position.x > 8f || transform.position.y > 10f) // Destroy the wasp if it has gone off-screen at the bottom
         {
             Destroy(gameObject);
         }

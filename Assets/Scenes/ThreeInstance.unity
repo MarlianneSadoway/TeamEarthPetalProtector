@@ -285,7 +285,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.33
     y: 0
     width: 0.34
     height: 1
@@ -403,7 +403,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.33333
+    x: 0
     y: 0
     width: 0.33
     height: 1
@@ -564,6 +564,9 @@ MonoBehaviour:
   playlist:
   - {fileID: 8300000, guid: 11edc009df909d34cadb074c1fe3341c, type: 3}
   - {fileID: 8300000, guid: bb4109c665d91cd4db552b17748c5119, type: 3}
+  - {fileID: 8300000, guid: e8b0ca9377658734cbe2a00f0db84457, type: 3}
+  - {fileID: 8300000, guid: 722d8073cdc7e14489c1a7e7121e6d1e, type: 3}
+  - {fileID: 8300000, guid: f75bdaa4ea1b9614586db0bbbbb6774a, type: 3}
 --- !u!82 &1347908238
 AudioSource:
   m_ObjectHideFlags: 0
