@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -18,19 +19,36 @@ public class GameController : MonoBehaviour
     public Camera camera2;
     public Camera camera3;
 
+    [Header("Music")]
+    public List<AudioClip> playlist;
+    private AudioSource stereo;
+    private int currentSong = 0;
     // Game Instances
     private GameObject[] games;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        stereo = GetComponent<AudioSource>();
+        stereo.PlayOneShot(playlist[currentSong]);
         games = new GameObject[3];
         // Create Menu instances
         createMenu(0);
         createMenu(1);
         createMenu(2);
+    }
 
-        // Resize Games as Necessary
+    void Update()
+    {
+        if (!stereo.isPlaying)
+        {
+            currentSong ++;
+            if (currentSong >= playlist.Count)
+            {
+                currentSong = 0;
+            }
+            stereo.PlayOneShot(playlist[currentSong]);
+        }
     }
 
     private void createMenu(int index)
