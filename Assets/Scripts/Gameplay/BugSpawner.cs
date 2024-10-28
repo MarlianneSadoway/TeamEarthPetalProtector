@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class BugSpawner : MonoBehaviour
 {
+    [Header("Bug Prefabs")]
     public GameObject beetlePrefab; // Reference to the Beetle prefab
     public GameObject flyPrefab; // Reference to the Fly prefab
     public GameObject waspPrefab; // Reference to the Wasp prefab
     public GameObject mothPrefab; // Reference to the Moth prefab
 
+    [Header("Spawn Configuration")]
     public float spawnInterval = 5f; // Time between spawns
     public float spawnDuration = 150f; // Total duration of spawning 
     public float spawnDistance = 2f; // Distance from the camera to spawn bugs
+    public HealthController healthController;
 
     private float spawnTime; // Timer to track elapsed spawn time
 
@@ -46,8 +49,22 @@ public class BugSpawner : MonoBehaviour
         // Randomly choose which bug prefab to spawn (0 = beetle, 1 = fly, 2 = wasp, 3 = moth)
         int bugType = Random.Range(0, 4);
         GameObject selectedBugPrefab = (bugType == 0) ? beetlePrefab : (bugType == 1) ? flyPrefab : (bugType == 2) ? waspPrefab : mothPrefab; // Moth
-
         // Instantiate the selected bug at the chosen position
-        Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity, gameObject.transform);
+        GameObject newBug = Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity, gameObject.transform);
+        switch(bugType)
+        {
+            case 0:
+                newBug.GetComponent<BeetleMovement>().healthController = healthController;
+                break;
+            case 1:
+                newBug.GetComponent<FlyMovement>().healthController = healthController;
+                break;
+            case 2:
+                newBug.GetComponent<WaspMovement>().healthController = healthController;
+                break;
+            default:
+                newBug.GetComponent<MothMovement>().healthController = healthController;
+                break;
+        }
     }
 }

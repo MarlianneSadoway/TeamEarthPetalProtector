@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class MothMovement : MonoBehaviour
 {
+    [Header("Moth Configuration")]
     public float speed = 2f; // Speed of the moth
     public float amplitude = 0.5f; // How far the moth oscillates in the X direction
     public float frequency = 1f; // How fast the moth oscillates
+    public Transform spawnRoot; // Transform to link bugs to prefab instance
 
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The moth's Rigidbody2D component
-    private HealthController healthController; // Reference to the HealthController script
+    public HealthController healthController; // Reference to the HealthController script
     public float repelForce = 2.5f;
     private bool isRepelled = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnRoot = gameObject.transform.parent.transform;
         // Set the moth's initial random X position at the top of the screen
         float startX = Random.Range(-1.5f, 1f);
-        transform.position = new Vector3(startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.position = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the moth's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
 
         // Get the HealthController from the scene
-        healthController = FindObjectOfType<HealthController>();
+        //healthController = FindObjectOfType<HealthController>();
     }
 
     // Update is called once per frame
@@ -45,7 +48,7 @@ public class MothMovement : MonoBehaviour
         }
 
         // Destroy the moth if it has gone off-screen so that there aren't a ton of extra moth gameObjects 
-        if (transform.position.y < -6f) // Destroy if off the bottom (Bottom is -5)
+        if (transform.position.y < -6f || transform.position.x < -8f || transform.position.x > 8f || transform.position.y > 10f) // Destroy if off the bottom (Bottom is -5)
         {
             Destroy(gameObject);
         }

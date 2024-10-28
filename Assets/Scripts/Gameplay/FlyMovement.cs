@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class FlyMovement : MonoBehaviour
 {
+    [Header("Fly Configuration")]
     public float speed = 3f; // Speed of the bug
     public float amplitude = 1.25f; // How wide the fly oscillates in the X direction
     public float frequency = 1.5f; // How fast the fly oscillates
+    public Transform spawnRoot; // Transform to link bugs to prefab instance
 
     private float startX; // To store the initial X position
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The bug's Rigidbody2D component
-    private HealthController healthController; // Reference to the HealthController script
+    public HealthController healthController; // Reference to the HealthController script
     public float repelForce = 2.5f;
     private bool isRepelled = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnRoot = gameObject.transform.parent.transform;
         // Set the fly's initial random X position at the top of the screen
         startX = Random.Range(-1.5f, 1f);
-        transform.position = new Vector3(startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.position = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the bug's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
 
         // Get the HealthController from the scene
-        healthController = FindObjectOfType<HealthController>();
+        //healthController = FindObjectOfType<HealthController>();
     }
 
     // Update is called once per frame
@@ -38,14 +41,14 @@ public class FlyMovement : MonoBehaviour
         timeElapsed += Time.deltaTime;
 
         // Calculate the new X position using a sine wave
-        float newX = startX + Mathf.Sin(timeElapsed * frequency) * amplitude;
+        float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
         // Move the fly downward while also oscillating in the X direction
         transform.position = new Vector3(newX, transform.position.y - (speed * Time.deltaTime), 0f);
     }
 
     // Destroy the bug if it has gone off-screen
-    if (transform.position.x < -9 || transform.position.x > 9 || transform.position.y > 6 || transform.position.y < -6f)
+    if (transform.position.x < -9f || transform.position.x > 9f || transform.position.y > 10f || transform.position.y < -6f)
     {
         Destroy(gameObject);
     }
