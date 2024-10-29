@@ -22,7 +22,7 @@ public class MothMovement : MonoBehaviour
         spawnRoot = gameObject.transform.parent.transform;
         // Set the moth's initial random X position at the top of the screen
         float startX = Random.Range(-1.5f, 1f);
-        transform.position = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.localPosition = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the moth's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
@@ -44,11 +44,11 @@ public class MothMovement : MonoBehaviour
             float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
             // Move the moth downward while also oscillating in the X direction
-            transform.position = new Vector3(newX, transform.position.y - (speed * Time.deltaTime), 0f);
+            transform.localPosition = new Vector3(newX, transform.localPosition.y - (speed * Time.deltaTime), 0f);
         }
 
         // Destroy the moth if it has gone off-screen so that there aren't a ton of extra moth gameObjects 
-        if (transform.position.y < -6f || transform.position.x < -8f || transform.position.x > 8f || transform.position.y > 10f) // Destroy if off the bottom (Bottom is -5)
+        if (transform.localPosition.y < -6f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy if off the bottom (Bottom is -5)
         {
             Destroy(gameObject);
         }

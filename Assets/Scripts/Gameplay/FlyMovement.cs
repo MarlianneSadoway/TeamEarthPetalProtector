@@ -23,7 +23,7 @@ public class FlyMovement : MonoBehaviour
         spawnRoot = gameObject.transform.parent.transform;
         // Set the fly's initial random X position at the top of the screen
         startX = Random.Range(-1.5f, 1f);
-        transform.position = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.localPosition = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the bug's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
@@ -44,11 +44,11 @@ public class FlyMovement : MonoBehaviour
         float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
         // Move the fly downward while also oscillating in the X direction
-        transform.position = new Vector3(newX, transform.position.y - (speed * Time.deltaTime), 0f);
+        transform.localPosition = new Vector3(newX, transform.localPosition.y - (speed * Time.deltaTime), 0f);
     }
 
     // Destroy the bug if it has gone off-screen
-    if (transform.position.x < -9f || transform.position.x > 9f || transform.position.y > 10f || transform.position.y < -6f)
+    if (transform.localPosition.x < -9f || transform.localPosition.x > 9f || transform.localPosition.y > 10f || transform.localPosition.y < -6f)
     {
         Destroy(gameObject);
     }
