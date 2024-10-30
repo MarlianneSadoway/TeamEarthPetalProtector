@@ -17,6 +17,9 @@ public class HealthController : MonoBehaviour
     public GameIndex gameIndex;
     private SpriteRenderer plantSprite;
     private Color originalColor;
+    private float currentSat = 1f; // 100% saturation to start
+    private float satStep = 0.20f;
+    private Color deadColor = new Color(179f / 255f, 179f / 255f, 179f / 255f); // Grey tone
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +33,6 @@ public class HealthController : MonoBehaviour
             heartList[i] = Instantiate(heart, new Vector3(location.position.x, (float)(location.position.y - (i * 0.6)), location.position.z), Quaternion.identity, gameObject.transform);
         }
 
-        //plant = GameObject.FindWithTag("Plant");
         plantSprite = plant.GetComponent<SpriteRenderer>();
         // Get plant's original color
         if (plantSprite != null)
@@ -53,7 +55,7 @@ public class HealthController : MonoBehaviour
         if (index >= 0)
         {
             heartPop.Play();
-            StartCoroutine(PlantFlashWhenHit()); // Make the plant flash red
+            StartCoroutine(PlantFlashWhenHit()); // Make the plant flash red AND reduce color slightly
             GameObject heartToRemove = heartList[index];
             heartToRemove.AddComponent<HeartFall>(); // Makes the heart fall downwards off the screen 
             index--; // Set index to the next heart
@@ -82,10 +84,11 @@ public class HealthController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-        // Revert the plant color back to its original color
+        // Revert plant color to be slightly darker/less green
+        currentSat = Mathf.Max(0f, currentSat - satStep); // Ensure it doesn't go below 0
         foreach (SpriteRenderer sprite in allSprites)
         {
-            sprite.material.color = originalColor;
+            sprite.material.color = Color.Lerp(deadColor, originalColor, currentSat); // Fades slowly
         }
         
     }
