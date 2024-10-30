@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaspMovement : MonoBehaviour
 {
     [Header("Wasp Configuration")]
-    public float speed = 3f; // Speed of the wasp
+    public float speed = 3f; // Speed of the wasp   
     public float amplitude = 1.5f; // Amplitude for Z-shape movement
     public float frequency = 5f; // Frequency of the oscillation
     public Transform spawnRoot; // Transform to link bugs to prefab instance
@@ -21,7 +21,7 @@ public class WaspMovement : MonoBehaviour
     {
         spawnRoot = gameObject.transform.parent.transform;
         // Set the wasp's initial position at the top of the screen
-        transform.position = new Vector3(spawnRoot.position.x + Random.Range(-1.5f, 1f), 6f, 0f); // Y = 6 is off the top of the screen
+        transform.localPosition = new Vector3(spawnRoot.localPosition.x + Random.Range(-1.5f, 1f), 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the wasp's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
@@ -43,11 +43,11 @@ public class WaspMovement : MonoBehaviour
             float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
             // Move the wasp downward while also oscillating in the X direction
-            transform.position += new Vector3(newX * Time.deltaTime, -speed * Time.deltaTime, 0f);
+            transform.localPosition += new Vector3(newX * Time.deltaTime, -speed * Time.deltaTime, 0f);
         }
 
         // Destroy the wasp if it has gone off-screen to prevent unnecessary gameObjects 
-        if (transform.position.y < -6f || transform.position.x < -8f || transform.position.x > 8f || transform.position.y > 10f) // Destroy the wasp if it has gone off-screen at the bottom
+        if (transform.localPosition.y < -6f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy the wasp if it has gone off-screen at the bottom
         {
             Destroy(gameObject);
         }

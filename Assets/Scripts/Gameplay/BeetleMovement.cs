@@ -19,7 +19,7 @@ public class BeetleMovement : MonoBehaviour
         spawnRoot = gameObject.transform.parent.transform;
         // Set the beetle's initial random X position at the top of the screen
         float startX = Random.Range(-1.5f, 1f);
-        transform.position = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.localPosition = new Vector3(spawnRoot.localPosition.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the beetle's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
@@ -34,12 +34,12 @@ public class BeetleMovement : MonoBehaviour
         if (!isRepelled)
         {
             // Move the beetle toward the target
-            Vector3 direction = (targetPosition - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
+            Vector3 direction = (targetPosition - transform.localPosition).normalized;
+            transform.localPosition += direction * speed * Time.deltaTime;
         }
 
         // Destroy the beetle if it has gone off-screen
-        if (transform.position.y < -6f || transform.position.x < -8f || transform.position.x > 8f || transform.position.y > 10f)
+        if (transform.localPosition.y < -6f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f)
         {
             Destroy(gameObject);
         }
