@@ -48,7 +48,7 @@ public class FlyMovement : MonoBehaviour
     }
 
     // Destroy the bug if it has gone off-screen
-    if (transform.localPosition.x < -9f || transform.localPosition.x > 9f || transform.localPosition.y > 10f || transform.localPosition.y < -6f)
+    if (transform.localPosition.x < -9f || transform.localPosition.x > 9f || transform.localPosition.y > 10f || transform.localPosition.y < -2f)
     {
         Destroy(gameObject);
     }

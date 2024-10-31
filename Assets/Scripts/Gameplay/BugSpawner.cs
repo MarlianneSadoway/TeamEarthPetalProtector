@@ -35,12 +35,13 @@ public class BugSpawner : MonoBehaviour
         }
     }
 
+
     void SpawnBug()
     {
         // Fixed Y position at the top of the screen
         float yPosition = 6f; 
 
-        // Random X position between -2.5 and 1
+        // Random X position between -1.5 and 1
         float xPosition = Random.Range(-1.5f, 1f); 
 
         // Set the spawn position with X on the left or right, and random Y
@@ -49,6 +50,7 @@ public class BugSpawner : MonoBehaviour
         // Randomly choose which bug prefab to spawn (0 = beetle, 1 = fly, 2 = wasp, 3 = moth)
         int bugType = Random.Range(0, 4);
         GameObject selectedBugPrefab = (bugType == 0) ? beetlePrefab : (bugType == 1) ? flyPrefab : (bugType == 2) ? waspPrefab : mothPrefab; // Moth
+        
         // Instantiate the selected bug at the chosen position
         GameObject newBug = Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity, gameObject.transform);
         switch(bugType)

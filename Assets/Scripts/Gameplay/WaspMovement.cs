@@ -47,7 +47,7 @@ public class WaspMovement : MonoBehaviour
         }
 
         // Destroy the wasp if it has gone off-screen to prevent unnecessary gameObjects 
-        if (transform.localPosition.y < -6f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy the wasp if it has gone off-screen at the bottom
+        if (transform.localPosition.y < -2f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy the wasp if it has gone off-screen at the bottom
         {
             Destroy(gameObject);
         }

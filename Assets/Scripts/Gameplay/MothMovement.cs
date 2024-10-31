@@ -48,7 +48,7 @@ public class MothMovement : MonoBehaviour
         }
 
         // Destroy the moth if it has gone off-screen so that there aren't a ton of extra moth gameObjects 
-        if (transform.localPosition.y < -6f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy if off the bottom (Bottom is -5)
+        if (transform.localPosition.y < -2f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f) // Destroy if off the bottom (Bottom is -5)
         {
             Destroy(gameObject);
         }
