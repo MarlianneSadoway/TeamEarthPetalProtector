@@ -23,7 +23,7 @@ public class FlyMovement : MonoBehaviour
         spawnRoot = gameObject.transform.parent.transform;
         // Set the fly's initial random X position at the top of the screen
         startX = Random.Range(-1.5f, 1f);
-        transform.localPosition = new Vector3(spawnRoot.position.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
+        transform.localPosition = new Vector3(spawnRoot.localPosition.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the bug's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
