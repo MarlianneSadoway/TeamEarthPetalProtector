@@ -8,6 +8,7 @@ public class DifficultySelect : MonoBehaviour
 {
     public GameObject SelectDiff;
     private AudioSource soundEffect;
+    public float delayBeforeClose = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,12 @@ public class DifficultySelect : MonoBehaviour
     private void nextMenu()
     {
         SelectDiff.SetActive(true);
+        // coroutine to start a timer for the instructions to close if left open for 30 seconds
+        StartCoroutine(closeOverlay(delayBeforeClose));
+    }
+    IEnumerator closeOverlay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        SelectDiff.SetActive(false);
     }
 }

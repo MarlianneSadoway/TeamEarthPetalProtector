@@ -187,6 +187,31 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a910923209a2dfa4bb1f8669bd411d04, type: 3}
+--- !u!1 &284707307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1584980020214855621, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  m_PrefabInstance: {fileID: 3351204330930897584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &531223023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8543566466177953852, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  m_PrefabInstance: {fileID: 3351204330930897584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &544995392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8437766732568118622, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  m_PrefabInstance: {fileID: 3351204330930897584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &578145471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 147913229404928375, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  m_PrefabInstance: {fileID: 3351204330930897584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1373562225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2603473749425550513, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+  m_PrefabInstance: {fileID: 3351204330930897584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503916878
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +475,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2041309689}
+    - target: {fileID: 5313484644038478036, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+      propertyPath: FifthInstruct
+      value: 
+      objectReference: {fileID: 1373562225}
+    - target: {fileID: 5313484644038478036, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+      propertyPath: SixthInstruct
+      value: 
+      objectReference: {fileID: 531223023}
+    - target: {fileID: 5313484644038478036, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+      propertyPath: ThirdInstruct
+      value: 
+      objectReference: {fileID: 578145471}
+    - target: {fileID: 5313484644038478036, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+      propertyPath: FourthInstruct
+      value: 
+      objectReference: {fileID: 544995392}
+    - target: {fileID: 5313484644038478036, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
+      propertyPath: SecondInstruct
+      value: 
+      objectReference: {fileID: 284707307}
     - target: {fileID: 5650907097437472434, guid: 6824c0f79cddc6c4f8ee8bb90769ac49, type: 3}
       propertyPath: m_Camera
       value: 
