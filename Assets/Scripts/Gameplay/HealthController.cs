@@ -19,7 +19,7 @@ public class HealthController : MonoBehaviour
     private Color originalColor;
     private float currentSat = 1f; // 100% saturation to start
     private float satStep = 0.20f;
-    private Color deadColor = new Color(179f / 255f, 179f / 255f, 179f / 255f); // Grey tone
+    public Color deadColor; // Grey tone
 
     // Start is called before the first frame update
     void Start()
