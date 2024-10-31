@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EasyRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 5142325524549815621, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5883194212345678253, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.84
@@ -669,6 +673,10 @@ PrefabInstance:
     - target: {fileID: 6790704931877205528, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131995451408658887, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7258330143161419805, guid: 33f56210f0f67b643afa2e6ee3356b31, type: 3}
       propertyPath: m_LocalPosition.x
