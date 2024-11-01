@@ -2760,6 +2760,7 @@ MonoBehaviour:
   heartPop: {fileID: 2991262442615046036}
   plant: {fileID: 2380976216039326288}
   gameIndex: {fileID: 4803737638922583116}
+  deadColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!82 &2991262442615046036
 AudioSource:
   m_ObjectHideFlags: 0
