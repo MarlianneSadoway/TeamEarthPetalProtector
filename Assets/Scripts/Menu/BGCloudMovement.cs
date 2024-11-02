@@ -18,9 +18,9 @@ public class BGCloudMovement : MonoBehaviour
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 
         // loop clouds
-        if (transform.position.x > 16.5)
+        if (transform.localPosition.x > 16.5)
         {
-            transform.position = new Vector3(-15, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(-15, transform.localPosition.y, transform.localPosition.z);
         }
     }
 }

@@ -350,10 +350,11 @@ MonoBehaviour:
   squishSounds:
   - {fileID: 8300000, guid: 86d99efad09852141b32c232ef62ecdb, type: 3}
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
-  - {fileID: 8300000, guid: 3d6311deef79b974e9d82736ab485194, type: 3}
   - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
   damagedBug: []
   fullHealth: 0
+  growScale: 1.2
+  growDuration: 0.1
 --- !u!114 &2660685474001872242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +370,8 @@ MonoBehaviour:
   speed: 1.5
   amplitude: 1.5
   frequency: 5
+  spawnRoot: {fileID: 0}
+  healthController: {fileID: 0}
   repelForce: 2.5
 --- !u!82 &7641173987839810015
 AudioSource:
