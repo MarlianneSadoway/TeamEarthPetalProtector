@@ -15,12 +15,13 @@ public class DestroyBugWithTap : MonoBehaviour
 
     [Header("Click Animation Settings")]
     public float growScale = 1.2f; // Scale multiplier for the "clicked" effect
-    public float growDuration = 0.1f; // Duration of the "clicked" effect
+    public float growDuration = 0.05f; // Duration of the "clicked" effect
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<TapGesture>().Tapped += tappedHandler;
+        gesture = GetComponent<TapGesture>();
+        gesture.Tapped += tappedHandler;
         health = fullHealth; // bug's initial health is full health
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
