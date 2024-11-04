@@ -72,11 +72,6 @@ public class WaterController : MonoBehaviour
         Destroy(dropList[currentIndex]);
         // Instantiate the emptyDrop in the stored position
         dropList[currentIndex] = Instantiate(emptyDrop, dropPosition, Quaternion.identity, gameObject.transform);
-        // Make the watering can shake to alert the player that the plant needs water
-        if (wateringCan != null)
-        {
-            StartCoroutine(wateringCan.Shake());
-        }
     }
 
     public void AddWater()
@@ -97,7 +92,7 @@ public class WaterController : MonoBehaviour
         }
     }
 
-    public int get_index()
+    public int getIndex()
     {
         return index;
     }

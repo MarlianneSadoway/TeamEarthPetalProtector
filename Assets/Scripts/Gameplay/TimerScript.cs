@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimerScript : MonoBehaviour
 {
 
-    public float totalTime = 150; // Total time in seconds
+    public float totalTime = 90; // Total time in seconds
     private float remainingTime;
     public bool timeRunning = false; // Trigger to start and stop timer
     public TMP_Text timeText; // UI Element for timer
@@ -31,8 +31,6 @@ public class TimerScript : MonoBehaviour
         {
             // Decrement time if the timer is running
             remainingTime -= Time.deltaTime;
-            // Update TimerUI
-            TimerUI(remainingTime);
 
             // Check if time is up
             if (remainingTime <= 0)
@@ -50,7 +48,11 @@ public class TimerScript : MonoBehaviour
                 StartCoroutine(GameWonTransition());
             }
 
+            // Update TimerUI
+            TimerUI(remainingTime);
+
         }
+
     }
 
     // Coroutine to handle the delay before transitioning to the menu scene
