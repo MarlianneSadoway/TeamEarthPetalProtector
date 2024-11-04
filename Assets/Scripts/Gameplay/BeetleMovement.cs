@@ -10,10 +10,12 @@ public class BeetleMovement : MonoBehaviour
     private Rigidbody2D rb; // The beetle's Rigidbody2D component
     public HealthController healthController; // Reference to the HealthController script
     private bool isRepelled = false; // Track if the beetle is repelled
+    public Transform spawnRoot; // Transform to link bugs to prefab instance
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnRoot = gameObject.transform.parent.transform;
         // Set the beetle's initial random X localPosition at the top of the screen
         float startX = Random.Range(-1.5f, 1f);
         transform.localPosition = new Vector3(startX, 6f, 0f); // Y = 6 is off the top of the screen
