@@ -105,6 +105,7 @@ MonoBehaviour:
   speed: 0.5
   repelForce: 2.5
   healthController: {fileID: 0}
+  spawnRoot: {fileID: 0}
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4
@@ -184,11 +185,9 @@ MonoBehaviour:
   squishSounds:
   - {fileID: 8300000, guid: 86d99efad09852141b32c232ef62ecdb, type: 3}
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
-  - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
   damagedBug:
   - {fileID: 21300000, guid: f98f6d5ee160dbb47be53abc033af248, type: 3}
-  - {fileID: 21300000, guid: 6e87335f536386f4597935c0b522a32c, type: 3}
-  fullHealth: 3
+  fullHealth: 2
   growScale: 1.2
   growDuration: 0.1
 --- !u!60 &7833387302644036301

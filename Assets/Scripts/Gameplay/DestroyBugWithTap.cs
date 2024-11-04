@@ -16,6 +16,7 @@ public class DestroyBugWithTap : MonoBehaviour
     [Header("Click Animation Settings")]
     public float growScale = 1.2f; // Scale multiplier for the "clicked" effect
     public float growDuration = 0.05f; // Duration of the "clicked" effect
+    private Color originalColor;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,11 @@ public class DestroyBugWithTap : MonoBehaviour
         gesture.Tapped += tappedHandler;
         health = fullHealth; // bug's initial health is full health
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
     private void tappedHandler(object sender, System.EventArgs e)
@@ -35,6 +41,8 @@ public class DestroyBugWithTap : MonoBehaviour
         health--;
         AudioClip randomClip = squishSounds[Random.Range(0, squishSounds.Length)];
         bugDeath.PlayOneShot(randomClip, 0.2f);
+
+        StartCoroutine(BugFlashWhenHit());
         
         // Change sprite if health is not depleted
         if (health > 0)
@@ -74,6 +82,18 @@ public class DestroyBugWithTap : MonoBehaviour
         }
 
         transform.localScale = originalScale; // Ensure scale resets back to original
+    }
+
+    // Coroutine to make the bug flash when hit
+    private IEnumerator BugFlashWhenHit()
+    {
+        // Change color to red
+        spriteRenderer.color = Color.red;
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        // Change back to original color
+        spriteRenderer.color = originalColor;
     }
 
     private void killBug()
