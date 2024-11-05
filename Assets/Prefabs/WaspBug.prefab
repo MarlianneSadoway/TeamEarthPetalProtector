@@ -352,7 +352,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e29eedf34559a054fa772562ce09c47f, type: 3}
   - {fileID: 8300000, guid: 66cf0d1712242084e8c5de29902c72f8, type: 3}
   damagedBug: []
-  fullHealth: 0
+  fullHealth: 1
   growScale: 1.2
   growDuration: 0.1
 --- !u!114 &2660685474001872242
