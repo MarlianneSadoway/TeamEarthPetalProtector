@@ -10,6 +10,7 @@ public class WaspMovement : MonoBehaviour
     public float frequency = 5f; // Frequency of the oscillation
     public Transform spawnRoot; // Transform to link bugs to prefab instance
 
+    private float startX; // To store the initial X position
     private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The wasp's Rigidbody2D component
     public HealthController healthController; // Reference to the HealthController script
@@ -21,7 +22,8 @@ public class WaspMovement : MonoBehaviour
     {
         spawnRoot = gameObject.transform.parent.transform;
         // Set the wasp's initial position at the top of the screen
-        transform.localPosition = new Vector3(spawnRoot.localPosition.x + Random.Range(-1.5f, 1f), 6f, 0f); // Y = 6 is off the top of the screen
+        startX = Random.Range(-1.5f, 1f);
+        transform.localPosition = new Vector3(spawnRoot.localPosition.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
 
         // Get the wasp's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
@@ -43,7 +45,7 @@ public class WaspMovement : MonoBehaviour
             float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
 
             // Move the wasp downward while also oscillating in the X direction
-            transform.localPosition += new Vector3(newX * Time.deltaTime, -speed * Time.deltaTime, 0f);
+            transform.localPosition = new Vector3(newX, transform.localPosition.y - (speed * Time.deltaTime), 0f);
         }
 
         // Destroy the wasp if it has gone off-screen to prevent unnecessary gameObjects 
