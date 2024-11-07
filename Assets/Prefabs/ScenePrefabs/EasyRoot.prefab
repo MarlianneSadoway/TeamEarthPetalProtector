@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03d6fc49b8de4e6a9d58271af3a20ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseSpeed: 2.3
+  pulseSpeed: 3.2
   maxScale: 1
   minScale: 0.85
 --- !u!1 &4262938066195380832
@@ -2220,7 +2220,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 37862c0df5df04acfb3e53cfa366ace7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2816,8 +2816,10 @@ MonoBehaviour:
   delayBeforeMenu: 4
   heartPop: {fileID: 2991262442615046036}
   plant: {fileID: 2380976216039326288}
+  root: {fileID: 4702202684974165238}
   gameIndex: {fileID: 4803737638922583116}
-  deadColor: {r: 0.81960785, g: 0.5019608, b: 0.8509804, a: 1}
+  deadPlantColor: {r: 0.6698113, g: 0.6105709, b: 0.5908241, a: 1}
+  deadRootColor: {r: 0.5566038, g: 0.5110953, b: 0.4542097, a: 1}
 --- !u!82 &2991262442615046036
 AudioSource:
   m_ObjectHideFlags: 0

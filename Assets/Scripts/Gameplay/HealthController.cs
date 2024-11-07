@@ -14,12 +14,16 @@ public class HealthController : MonoBehaviour
     public float delayBeforeMenu = 4f; // Delay to show Game Over before loading the MenuScene
     public AudioSource heartPop;
     public GameObject plant; 
+    public GameObject root;
     public GameIndex gameIndex;
     private SpriteRenderer plantSprite;
-    private Color originalColor;
+    private SpriteRenderer rootSprite;
+    private Color originalPlantColor;
+    private Color originalRootColor;
     private float currentSat = 1f; // 100% saturation to start
     private float satStep = 0.20f;
-    public Color deadColor; // Grey tone
+    public Color deadPlantColor;
+    public Color deadRootColor; 
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +38,16 @@ public class HealthController : MonoBehaviour
         }
 
         plantSprite = plant.GetComponent<SpriteRenderer>();
+        rootSprite = root.GetComponent<SpriteRenderer>();
         // Get plant's original color
         if (plantSprite != null)
         {
-            originalColor = plantSprite.color;
+            originalPlantColor = plantSprite.color;
+        }
+        // Get root's original color
+        if (rootSprite != null)
+        {
+            originalRootColor = rootSprite.color;
         }
     }
 
@@ -75,6 +85,8 @@ public class HealthController : MonoBehaviour
     IEnumerator PlantFlashWhenHit() {
         // Get sprites of the parent and children
         SpriteRenderer[] allSprites = plant.GetComponentsInChildren<SpriteRenderer>();
+        // Get root sprite for color change
+        SpriteRenderer rootSprite = root.GetComponent<SpriteRenderer>();
 
         // Change plant's sprite color to red
         foreach (SpriteRenderer sprite in allSprites)
@@ -88,9 +100,10 @@ public class HealthController : MonoBehaviour
         currentSat = Mathf.Max(0f, currentSat - satStep); // Ensure it doesn't go below 0
         foreach (SpriteRenderer sprite in allSprites)
         {
-            sprite.material.color = Color.Lerp(deadColor, originalColor, currentSat); // Fades slowly
+            sprite.material.color = Color.Lerp(deadPlantColor, originalPlantColor, currentSat); // Fades slowly
         }
-        
+        // Gradually change root color along with the plant color
+        rootSprite.material.color = Color.Lerp(deadRootColor, originalRootColor, currentSat);
     }
 
     // Coroutine to handle the delay before loading the menu scene
