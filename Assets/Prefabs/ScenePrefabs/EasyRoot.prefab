@@ -2753,6 +2753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterDrop: {fileID: 4726712791456823368, guid: a884fa42ac784c14d9f75a8cae296e6e, type: 3}
   emptyDrop: {fileID: 4726712791456823368, guid: 867a4ed2978195044975e80872e7dede, type: 3}
+  gameIndex: {fileID: 4803737638922583116}
   numDrops: 5
   location: {fileID: 3840524375868553837}
   interval: 15
