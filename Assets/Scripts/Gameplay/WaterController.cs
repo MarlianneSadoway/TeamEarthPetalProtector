@@ -8,6 +8,7 @@ public class WaterController : MonoBehaviour
 {
     public GameObject waterDrop; // Prefab for water drop
     public GameObject emptyDrop; // Prefab for empty drop
+    public GameIndex gameIndex;
     private GameObject[] dropList; // List of waterDrop Instances
     public int numDrops; // Number of water drops
     public Transform location; // Location for left most water drop to appear
@@ -61,7 +62,7 @@ public class WaterController : MonoBehaviour
         // Wait for the delayBeforeMenu seconds
         yield return new WaitForSeconds(delayBeforeMenu);
         // Transition to the menu scene
-        SceneManager.LoadScene("MenuScene");
+        gameIndex.swapMenu();
     }
 
     public void ReplaceWithEmpty(int currentIndex)
