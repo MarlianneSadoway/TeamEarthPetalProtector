@@ -8,6 +8,7 @@ public class BeetleMovement : MonoBehaviour
     public float speed = 2f; // Speed of the beetle
     public float repelForce = 2.5f; // Force applied to repel the beetle after hitting the plant
     private Rigidbody2D rb; // The beetle's Rigidbody2D component
+    public Transform target;
     public HealthController healthController; // Reference to the HealthController script
     private bool isRepelled = false; // Track if the beetle is repelled
     public Transform spawnRoot; // Transform to link bugs to prefab instance
@@ -30,7 +31,7 @@ public class BeetleMovement : MonoBehaviour
         if (!isRepelled)
         {
             // Move the beetle downward on the y-axis
-            transform.localPosition += Vector3.down * speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed*Time.deltaTime);
         }
 
         // Destroy the beetle if it has gone off-screen

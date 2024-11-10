@@ -86,5 +86,9 @@ public class FlyMovement : MonoBehaviour
         // Apply a force to make the beetle fly away to the left or right
         rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
+    private IEnumerator DelayDamage() 
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
 }
 

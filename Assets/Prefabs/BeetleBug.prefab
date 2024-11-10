@@ -106,6 +106,7 @@ MonoBehaviour:
   repelForce: 2.5
   healthController: {fileID: 0}
   spawnRoot: {fileID: 0}
+  flowerPos: {fileID: 0}
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4

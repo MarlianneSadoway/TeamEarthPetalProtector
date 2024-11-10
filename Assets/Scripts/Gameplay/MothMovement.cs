@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class MothMovement : MonoBehaviour
 {
     [Header("Moth Configuration")]
-    public float speed = 2f; // Speed of the moth
-    public float amplitude = 0.5f; // How far the moth oscillates in the X direction
-    public float frequency = 1f; // How fast the moth oscillates
     public Transform spawnRoot; // Transform to link bugs to prefab instance
+    public List<Transform> pathPoints;
+    private float _current;
 
-    private float timeElapsed; // Time tracking for sine wave movement
     private Rigidbody2D rb; // The moth's Rigidbody2D component
     public HealthController healthController; // Reference to the HealthController script
     public float repelForce = 2.5f;
@@ -21,9 +20,7 @@ public class MothMovement : MonoBehaviour
     {
         spawnRoot = gameObject.transform.parent.transform;
         // Set the moth's initial random X position at the top of the screen
-        float startX = Random.Range(-1.5f, 1f);
-        transform.localPosition = new Vector3(spawnRoot.localPosition.x + startX, 6f, 0f); // Y = 6 is off the top of the screen
-
+        transform.localPosition = pathPoints[0].localPosition; // Y = 6 is off the top of the screen
         // Get the moth's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
 
@@ -37,14 +34,8 @@ public class MothMovement : MonoBehaviour
         // Only move the moth if it hasn't been repelled
         if (!isRepelled)
         {
-            // Time-based horizontal oscillation
-            timeElapsed += Time.deltaTime;
-
-            // Calculate the new X position using a sine wave for subtle C-shaped movement
-            float newX = Mathf.Sin(timeElapsed * frequency) * amplitude;
-
-            // Move the moth downward while also oscillating in the X direction
-            transform.localPosition = new Vector3(newX, transform.localPosition.y - (speed * Time.deltaTime), 0f);
+            _current = Mathf.MoveTowards(_current, 1, 0.15f*Time.deltaTime); // final parameter here is the speed, needs to be hard coded because using a variable breaks it for some reason
+            transform.position = curveMovement(pathPoints[0].position, pathPoints[1].position, pathPoints[2].position, _current);
         }
 
         // Destroy the moth if it has gone off-screen so that there aren't a ton of extra moth gameObjects 
@@ -84,5 +75,14 @@ public class MothMovement : MonoBehaviour
 
         // Apply a force to make the moth fly away to the left or right
         rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
+    }
+
+    // Uses Lerp between three Transforms to create a curved path
+    private Vector3 curveMovement(Vector3 A, Vector3 B, Vector3 C, float t)
+    {
+        Vector3 AtoB = Vector3.Lerp(A, B, t);
+        Vector3 BtoC = Vector3.Lerp(B, C, t);
+        Vector3 final = Vector3.Lerp(AtoB, BtoC, t);
+        return final;
     }
 }
