@@ -72,7 +72,6 @@ public class HardBugSpawner : MonoBehaviour
                 break;
             case 3:
                 newBug.GetComponent<AntMovement>().healthController = healthController;
-                newBug.GetComponent<AntMovement>().target = bezierPoints[3]; 
                 break;
             default:
                 newBug.GetComponent<MothMovement>().healthController = healthController;

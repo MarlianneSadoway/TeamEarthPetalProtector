@@ -5,8 +5,7 @@ using UnityEngine;
 public class AntMovement : MonoBehaviour
 {
     [Header("Ant Configuration")]
-    public float speed = 2f; // Speed of the ant
-    public float repelForce = 2.5f; // Force applied to repel the ant after hitting the plant
+    public float speed = 1f; // Speed of the ant
     private Rigidbody2D rb; // The ant's Rigidbody2D component
     public Transform target;
     public HealthController healthController; // Reference to the HealthController script
@@ -17,9 +16,8 @@ public class AntMovement : MonoBehaviour
     void Start()
     {
         spawnRoot = gameObject.transform.parent.transform;
-        // Set the ant's initial random X localPosition at the top of the screen
-        float startX = Random.Range(-1.5f, 1f);
-        transform.localPosition = new Vector3(startX, 6f, 0f); // Y = 6 is off the top of the screen
+        // Set the ant's initial localPosition at the left edge of the screen, just above the dirt 
+        transform.localPosition = new Vector3(-2.78f, -1.999926f, 0f); // Y is on top of the dirt
 
         // Get the ant's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
@@ -28,8 +26,8 @@ public class AntMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move the ant downward on the y-axis
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        // Move the ant horizontally to the right
+        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 
         // Destroy the ant if it has gone off-screen
         if (transform.localPosition.y < -2f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f)

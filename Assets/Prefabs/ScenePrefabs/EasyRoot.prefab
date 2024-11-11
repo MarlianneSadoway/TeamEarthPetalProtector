@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5610080683580007272}
   - component: {fileID: 2110935023887276630}
+  - component: {fileID: 79354415967066476}
   m_Layer: 0
   m_Name: BugSpawner
   m_TagString: Untagged
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761876795790070333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2803ffe512c36154baa42aee2a112596, type: 3}
   m_Name: 
@@ -132,6 +133,32 @@ MonoBehaviour:
   spawnInterval: 5
   spawnDuration: 150
   spawnDistance: 2.8
+  healthController: {fileID: 6681062074155708382}
+  bezierPoints:
+  - {fileID: 6022179043188096830}
+  - {fileID: 7244475286522204273}
+  - {fileID: 4482357822784893895}
+  - {fileID: 5753357710835208783}
+--- !u!114 &79354415967066476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761876795790070333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9dfcac457014947b2d0b5abe907417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beetlePrefab: {fileID: 8415620405521482482, guid: 6d64c27e59ad43d42bc81d199a17f849, type: 3}
+  flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
+  waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
+  mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
+  antPrefab: {fileID: 8415620405521482482, guid: 7495164fd9ef09c40b051ee907ef7a80, type: 3}
+  spawnInterval: 5
+  spawnDuration: 150
+  spawnDistance: 2
   healthController: {fileID: 6681062074155708382}
   bezierPoints:
   - {fileID: 6022179043188096830}
