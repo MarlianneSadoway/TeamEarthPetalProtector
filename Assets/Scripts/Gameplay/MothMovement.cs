@@ -14,6 +14,7 @@ public class MothMovement : MonoBehaviour
     public HealthController healthController; // Reference to the HealthController script
     public float repelForce = 2.5f;
     private bool isRepelled = false;
+    private bool hasDamagedPlant = false; // Flag to prevent multiple heart losses
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,7 @@ public class MothMovement : MonoBehaviour
     // OnTriggerEnter2D is called when the moth collides with the plant
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Plant"))
+        if (collision.gameObject.CompareTag("Plant") && !hasDamagedPlant)
         {
             // Reduce health
             if (healthController != null)
@@ -58,6 +59,9 @@ public class MothMovement : MonoBehaviour
 
             // Set the moth as repelled to stop normal movement
             isRepelled = true;
+
+            // Set flag that bug has damaged plant so that it can't damage plant again 
+            hasDamagedPlant = true;
 
             // Delay repel 
             Invoke("Repel", 1f);

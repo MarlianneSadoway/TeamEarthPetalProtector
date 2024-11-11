@@ -12,6 +12,7 @@ public class BeetleMovement : MonoBehaviour
     public HealthController healthController; // Reference to the HealthController script
     private bool isRepelled = false; // Track if the beetle is repelled
     public Transform spawnRoot; // Transform to link bugs to prefab instance
+    private bool hasDamagedPlant = false; // Flag to prevent multiple heart losses
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class BeetleMovement : MonoBehaviour
     // OnTriggerEnter2D is called when the beetle collides with the plant
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Plant"))
+        if (collision.gameObject.CompareTag("Plant") && !hasDamagedPlant)
         {
             // Reduce health
             if (healthController != null)
@@ -54,6 +55,9 @@ public class BeetleMovement : MonoBehaviour
 
             // Set the beetle as repelled to stop normal movement
             isRepelled = true;
+
+            // Set flag that bug has damaged plant so that it can't damage plant again 
+            hasDamagedPlant = true;
 
             // Delay repel
             Invoke("Repel", 1f);
