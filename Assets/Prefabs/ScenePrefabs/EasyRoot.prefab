@@ -2908,6 +2908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 4726712791456823368, guid: 97a03c21476129c49b3a77fbf831cb9c, type: 3}
+  emptyHeart: {fileID: 4667882866271002004, guid: 128d40bff0cec4f48a3807f64b62ed89, type: 3}
   numHearts: 5
   location: {fileID: 8456356020127154809}
   gameOverUI: {fileID: 6440411868482941690}
