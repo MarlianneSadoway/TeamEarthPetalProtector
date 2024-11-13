@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class HealthController : MonoBehaviour
 {
     public GameObject heart; // Prefab for heart icon 
+    public GameObject emptyHeart;
     private GameObject[] heartList; // List of heart Instances
     public int numHearts; // Number of hearts
     public Transform location; // Location for top most heart to appear
@@ -67,7 +68,8 @@ public class HealthController : MonoBehaviour
             heartPop.Play();
             StartCoroutine(PlantFlashWhenHit()); // Make the plant flash red AND reduce color slightly
             GameObject heartToRemove = heartList[index];
-            heartToRemove.AddComponent<HeartFall>(); // Makes the heart fall downwards off the screen 
+            heartToRemove.AddComponent<HeartFall>(); // Makes the heart fall downwards off the screen
+            ReplaceWithEmpty(index); 
             index--; // Set index to the next heart
         }
 
@@ -114,5 +116,14 @@ public class HealthController : MonoBehaviour
 
         // Transition to the menu scene
         gameIndex.swapMenu();
+    }
+        public void ReplaceWithEmpty(int currentIndex)
+    {
+        // Store the position of the current heart before destroying it
+        Vector3 dropPosition = heartList[currentIndex].transform.position;
+        // Destroy the current heart
+        Destroy(heartList[currentIndex]);
+        // Instantiate the emptyHeart in the stored position
+        heartList[currentIndex] = Instantiate(emptyHeart, dropPosition, Quaternion.identity, gameObject.transform);
     }
 }
