@@ -14,20 +14,14 @@ public class GameTutorial : MonoBehaviour
     public GameObject FifthInstruct;
     public GameObject SixthInstruct;
     private AudioSource soundEffect;
-    public float delayBeforeClose = 60f;
-
+    public float delayBeforeClose = 40f;
     private Coroutine closeOverlayCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
         soundEffect = GetComponent<AudioSource>();
         GetComponent<TapGesture>().Tapped += tappedHandler;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void tappedHandler(object sender, EventArgs e)
@@ -36,6 +30,7 @@ public class GameTutorial : MonoBehaviour
         // if (closeOverlayCoroutine != null)
         // {
         //     StopCoroutine(closeOverlayCoroutine); // stop the running coroutine
+        //     Debug.Log("Tapped");
         // }
         Invoke("nextMenu", (float)0.25);
     }
@@ -44,8 +39,8 @@ public class GameTutorial : MonoBehaviour
     {
         Instruct.SetActive(true);
         FirstInstruct.SetActive(true);
-        // coroutine to start a timer for the instructions to close if left open for 45 seconds
-        //closeOverlayCoroutine = StartCoroutine(closeOverlay(delayBeforeClose));
+        // // coroutine to start a timer for the instructions to close if left open for 40 seconds
+        // closeOverlayCoroutine = StartCoroutine(closeOverlay(delayBeforeClose));
     }
 
     // IEnumerator closeOverlay(float duration)
@@ -58,6 +53,7 @@ public class GameTutorial : MonoBehaviour
     //         timer += Time.deltaTime; // increment the timer
     //     }
     //     yield return new WaitForSeconds(duration);
+    //     Debug.Log("40 seconds");
     //     Instruct.SetActive(false);
     //     FirstInstruct.SetActive(false);
     //     SecondInstruct.SetActive(false);
@@ -65,5 +61,6 @@ public class GameTutorial : MonoBehaviour
     //     FourthInstruct.SetActive(false);
     //     FifthInstruct.SetActive(false);
     //     SixthInstruct.SetActive(false);
+        
     // }
 }

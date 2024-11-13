@@ -63,7 +63,7 @@ public class TimerScript : MonoBehaviour
 
         // Transition to the menu scene
         //SceneManager.LoadScene("MenuScene");
-        gameIndex.swapMenu();
+        gameIndex.Invoke("swapMenu", 0.25f);
     }
 
     void TimerUI(float time)

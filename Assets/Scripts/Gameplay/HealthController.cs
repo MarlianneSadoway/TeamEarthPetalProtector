@@ -115,7 +115,7 @@ public class HealthController : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeMenu);
 
         // Transition to the menu scene
-        gameIndex.swapMenu();
+        gameIndex.Invoke("swapMenu", 0.25f);
     }
         public void ReplaceWithEmpty(int currentIndex)
     {
