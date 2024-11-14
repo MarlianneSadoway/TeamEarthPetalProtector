@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5610080683580007272}
-  - component: {fileID: 2110935023887276630}
+  - component: {fileID: 79354415967066476}
   m_Layer: 0
   m_Name: BugSpawner
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   - {fileID: 4482357822784893895}
   m_Father: {fileID: 425618802428914934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2110935023887276630
+--- !u!114 &79354415967066476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,16 +123,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 761876795790070333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2803ffe512c36154baa42aee2a112596, type: 3}
+  m_Script: {fileID: 11500000, guid: fc9dfcac457014947b2d0b5abe907417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beetlePrefab: {fileID: 8415620405521482482, guid: 6d64c27e59ad43d42bc81d199a17f849, type: 3}
   flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
   waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
   mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
-  spawnInterval: 5
+  roachPrefab: {fileID: 8415620405521482482, guid: 7495164fd9ef09c40b051ee907ef7a80, type: 3}
+  spawnInterval: 3
   spawnDuration: 150
-  spawnDistance: 2.8
+  spawnDistance: 2
   healthController: {fileID: 6681062074155708382}
   bezierPoints:
   - {fileID: 6022179043188096830}
@@ -3196,7 +3197,7 @@ GameObject:
   - component: {fileID: 425618802428914934}
   - component: {fileID: 4803737638922583116}
   m_Layer: 0
-  m_Name: EasyRoot
+  m_Name: HardRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3634,7 +3635,7 @@ MonoBehaviour:
   gameIndex: {fileID: 4803737638922583116}
   numDrops: 5
   location: {fileID: 3840524375868553837}
-  interval: 15
+  interval: 5
   newDrops: 1
   gameOverUI: {fileID: 6440411868482941690}
   delayBeforeMenu: 4
