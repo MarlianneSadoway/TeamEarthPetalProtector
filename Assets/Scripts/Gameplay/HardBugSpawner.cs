@@ -11,7 +11,7 @@ public class HardBugSpawner : MonoBehaviour
     public GameObject flyPrefab; // Reference to the Fly prefab
     public GameObject waspPrefab; // Reference to the Wasp prefab
     public GameObject mothPrefab; // Reference to the Moth prefab
-    public GameObject antPrefab; // Reference to the Ant prefab
+    public GameObject roachPrefab; // Reference to the Roach prefab
 
     [Header("Spawn Configuration")]
     public float spawnInterval = 5f; // Time between spawns
@@ -49,9 +49,9 @@ public class HardBugSpawner : MonoBehaviour
         // Set the spawn position with X on the left or right, and random Y
         Vector3 spawnPosition = new Vector3(xPosition, yPosition, 0f);
 
-        // Randomly choose which bug prefab to spawn (0 = beetle, 1 = fly, 2 = wasp, 3 = ant, 4 = moth)
+        // Randomly choose which bug prefab to spawn (0 = beetle, 1 = fly, 2 = wasp, 3 = roach, 4 = moth)
         int bugType = Random.Range(0, 5);
-        GameObject selectedBugPrefab = (bugType == 0) ? beetlePrefab : (bugType == 1) ? flyPrefab : (bugType == 2) ? waspPrefab : (bugType == 3) ? antPrefab : mothPrefab; // Moth
+        GameObject selectedBugPrefab = (bugType == 0) ? beetlePrefab : (bugType == 1) ? flyPrefab : (bugType == 2) ? waspPrefab : (bugType == 3) ? roachPrefab : mothPrefab; // Moth
         Debug.Log(bugType);
         // Instantiate the selected bug at the chosen position
         GameObject newBug = Instantiate(selectedBugPrefab, spawnPosition, Quaternion.identity, gameObject.transform);
@@ -71,7 +71,7 @@ public class HardBugSpawner : MonoBehaviour
                 newBug.GetComponent<WaspMovement>().healthController = healthController;
                 break;
             case 3:
-                newBug.GetComponent<AntMovement>().healthController = healthController;
+                newBug.GetComponent<RoachMovement>().healthController = healthController;
                 break;
             default:
                 newBug.GetComponent<MothMovement>().healthController = healthController;

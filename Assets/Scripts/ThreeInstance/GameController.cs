@@ -106,10 +106,43 @@ public class GameController : MonoBehaviour
         games[index].transform.GetComponent<GameIndex>().index = index;
     }
 
+    private void createHard(int index)
+    {
+        // Destroy Game at current index
+        Destroy(games[index]);
+        // Set default camera to camera 1
+        Camera cam = camera1;
+        // swap camera if to appropriate index
+        switch (index)
+        {
+            case 1:
+                cam = camera2;
+                break;
+            case 2:
+                cam = camera3;
+                break;
+        }
+        // Instantiate Prefab as child of camera
+        games[index] = Instantiate(gameHard, cam.transform);
+        // Assign camera to canvases
+        games[index].transform.Find("Canvas").GetComponent<Canvas>().worldCamera = cam;
+        games[index].transform.Find("GameWonVisuals").GetComponent<Canvas>().worldCamera = cam;
+        games[index].transform.Find("GameOver").GetComponent<Canvas>().worldCamera = cam;
+        // Assign self to prefabs root object and assign index
+        games[index].transform.GetComponent<GameIndex>().gameController = gameObject.GetComponent<GameController>();
+        games[index].transform.GetComponent<GameIndex>().index = index;
+    }
+
     // Callable function to swap from menu to easy
     public void menuToEasy(int index)
     {
         createEasy(index);
+    }
+
+    // Callable function to swap from menu to easy
+    public void menuToHard(int index)
+    {
+        createHard(index);
     }
 
     // Callable function to swap from game to menu
