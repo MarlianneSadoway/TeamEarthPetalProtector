@@ -18,7 +18,7 @@ public class GameIndex : MonoBehaviour
     // Function to swap from menu to hard game
     public void swapGameHard()
     {
-        //gameController.menuToHard(index);
+        gameController.menuToHard(index);
     }
     // Function to swap from game to menu
     public void swapMenu()
