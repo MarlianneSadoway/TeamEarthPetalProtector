@@ -131,7 +131,7 @@ MonoBehaviour:
   waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
   mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
   spawnInterval: 5
-  spawnDuration: 150
+  spawnDuration: 90
   spawnDistance: 2.8
   healthController: {fileID: 6681062074155708382}
   bezierPoints:
