@@ -132,7 +132,7 @@ MonoBehaviour:
   mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
   roachPrefab: {fileID: 8415620405521482482, guid: 7495164fd9ef09c40b051ee907ef7a80, type: 3}
   spawnInterval: 3
-  spawnDuration: 150
+  spawnDuration: 90
   spawnDistance: 2
   healthController: {fileID: 6681062074155708382}
   bezierPoints:

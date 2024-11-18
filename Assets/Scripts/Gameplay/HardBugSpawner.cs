@@ -15,7 +15,7 @@ public class HardBugSpawner : MonoBehaviour
 
     [Header("Spawn Configuration")]
     public float spawnInterval = 5f; // Time between spawns
-    public float spawnDuration = 150f; // Total duration of spawning 
+    public float spawnDuration = 90f; // Total duration of spawning 
     public float spawnDistance = 2f; // Distance from the camera to spawn bugs
     public HealthController healthController;
     public Transform[] bezierPoints;
