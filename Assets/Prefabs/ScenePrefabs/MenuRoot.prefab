@@ -6884,6 +6884,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruct: {fileID: 3813499776310258843}
   FirstInstruct: {fileID: 2134417273034232245}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
   delayBeforeClose: 40
 --- !u!1 &3969699399941878509
 GameObject:
