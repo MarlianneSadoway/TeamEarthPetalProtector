@@ -1577,6 +1577,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 1584980020214855621}
   CurrentPage: {fileID: 147913229404928375}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &49011554551261781
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2100,6 +2107,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 2603473749425550513}
   CurrentPage: {fileID: 8437766732568118622}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &2551514734503618078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3790,6 +3804,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 8543566466177953852}
   CurrentPage: {fileID: 2603473749425550513}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &7904802358945826799
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4015,6 +4036,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 8437766732568118622}
   CurrentPage: {fileID: 147913229404928375}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &3250269376987175342
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6856,12 +6884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruct: {fileID: 3813499776310258843}
   FirstInstruct: {fileID: 2134417273034232245}
-  SecondInstruct: {fileID: 0}
-  ThirdInstruct: {fileID: 0}
-  FourthInstruct: {fileID: 0}
-  FifthInstruct: {fileID: 0}
-  SixthInstruct: {fileID: 0}
-  delayBeforeClose: 60
+  delayBeforeClose: 40
 --- !u!1 &3969699399941878509
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,6 +7148,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 8437766732568118622}
   CurrentPage: {fileID: 2603473749425550513}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &9074481024482615036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9304,6 +9334,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 2134417273034232245}
   CurrentPage: {fileID: 1584980020214855621}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &3695159422468940849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9627,6 +9664,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 147913229404928375}
   CurrentPage: {fileID: 1584980020214855621}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!114 &5929894250710204071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10933,6 +10977,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 2603473749425550513}
   CurrentPage: {fileID: 8543566466177953852}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &2133640108862731855
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12673,6 +12724,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 147913229404928375}
   CurrentPage: {fileID: 8437766732568118622}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &4193875069347240035
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13857,6 +13915,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchPage: {fileID: 1584980020214855621}
   CurrentPage: {fileID: 2134417273034232245}
+  Instruct: {fileID: 3813499776310258843}
+  SecondInstruct: {fileID: 1584980020214855621}
+  ThirdInstruct: {fileID: 147913229404928375}
+  FourthInstruct: {fileID: 8437766732568118622}
+  FifthInstruct: {fileID: 2603473749425550513}
+  SixthInstruct: {fileID: 8543566466177953852}
+  delayBeforeClose: 40
 --- !u!82 &8762726328331472013
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,13 +8,8 @@ public class GameTutorial : MonoBehaviour
 {
     public GameObject Instruct;
     public GameObject FirstInstruct;
-    public GameObject SecondInstruct;
-    public GameObject ThirdInstruct;
-    public GameObject FourthInstruct;
-    public GameObject FifthInstruct;
-    public GameObject SixthInstruct;
     private AudioSource soundEffect;
-    public float delayBeforeClose = 40f;
+    public float delayBeforeClose = 40f; // for AFK timer 
     private Coroutine closeOverlayCoroutine;
 
     // Start is called before the first frame update
@@ -22,45 +17,45 @@ public class GameTutorial : MonoBehaviour
     {
         soundEffect = GetComponent<AudioSource>();
         GetComponent<TapGesture>().Tapped += tappedHandler;
+        startAFKTimer();
     }
 
     private void tappedHandler(object sender, EventArgs e)
     {
         soundEffect.Play();
-        // if (closeOverlayCoroutine != null)
-        // {
-        //     StopCoroutine(closeOverlayCoroutine); // stop the running coroutine
-        //     Debug.Log("Tapped");
-        // }
-        Invoke("nextMenu", (float)0.25);
+        restartAFKTimer();
+        Invoke("nextMenu", 0.25f);
     }
 
     private void nextMenu()
     {
         Instruct.SetActive(true);
         FirstInstruct.SetActive(true);
-        // // coroutine to start a timer for the instructions to close if left open for 40 seconds
-        // closeOverlayCoroutine = StartCoroutine(closeOverlay(delayBeforeClose));
     }
 
-    // IEnumerator closeOverlay(float duration)
-    // {
-    //     float timer = 0f;
+    private void startAFKTimer() {
+        closeOverlayCoroutine = StartCoroutine(closeOverlay());
+    }
 
-    //     while (timer < duration)
-    //     {
-    //         yield return null; // wait for next frame
-    //         timer += Time.deltaTime; // increment the timer
-    //     }
-    //     yield return new WaitForSeconds(duration);
-    //     Debug.Log("40 seconds");
-    //     Instruct.SetActive(false);
-    //     FirstInstruct.SetActive(false);
-    //     SecondInstruct.SetActive(false);
-    //     ThirdInstruct.SetActive(false);
-    //     FourthInstruct.SetActive(false);
-    //     FifthInstruct.SetActive(false);
-    //     SixthInstruct.SetActive(false);
-        
-    // }
+    private void restartAFKTimer()
+    {
+        if (closeOverlayCoroutine != null)
+        {
+            StopCoroutine(closeOverlayCoroutine);
+        }
+        startAFKTimer();
+    }
+
+    IEnumerator closeOverlay()
+    {
+        yield return new WaitForSeconds(delayBeforeClose);
+        Debug.Log("40 seconds are up!");
+        CloseInstructions();
+     }
+
+    private void CloseInstructions()
+    {
+        Instruct.SetActive(false);
+        FirstInstruct.SetActive(false);
+    }
 }
