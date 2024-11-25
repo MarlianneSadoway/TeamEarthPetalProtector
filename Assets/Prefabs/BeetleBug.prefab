@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6752111539762914003}
   - component: {fileID: 7833387302644036301}
   - component: {fileID: 5870589967514737474}
+  - component: {fileID: 4890870048722136278}
   m_Layer: 0
   m_Name: BeetleBug
   m_TagString: Untagged
@@ -104,9 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   repelForce: 2.5
+  target: {fileID: 0}
   healthController: {fileID: 0}
   spawnRoot: {fileID: 0}
-  flowerPos: {fileID: 0}
 --- !u!50 &2383116067587347339
 Rigidbody2D:
   serializedVersion: 4
@@ -659,3 +660,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4890870048722136278
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415620405521482482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95ba0e822c727d445bcfb945360685df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

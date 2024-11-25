@@ -8,6 +8,11 @@ public class GameTutorial : MonoBehaviour
 {
     public GameObject Instruct;
     public GameObject FirstInstruct;
+    public GameObject SecondInstruct;
+    public GameObject ThirdInstruct;
+    public GameObject FourthInstruct;
+    public GameObject FifthInstruct;
+    public GameObject SixthInstruct;
     private AudioSource soundEffect;
     public float delayBeforeClose = 40f; // for AFK timer 
     private Coroutine closeOverlayCoroutine;
@@ -31,6 +36,11 @@ public class GameTutorial : MonoBehaviour
     {
         Instruct.SetActive(true);
         FirstInstruct.SetActive(true);
+        SecondInstruct.SetActive(false);
+        ThirdInstruct.SetActive(false);
+        FourthInstruct.SetActive(false);
+        FifthInstruct.SetActive(false);
+        SixthInstruct.SetActive(false);
     }
 
     private void startAFKTimer() {

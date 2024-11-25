@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 317752772584371528}
   - component: {fileID: 7913031558344788866}
   - component: {fileID: 3912859534167786705}
+  - component: {fileID: 8389843012064989843}
   m_Layer: 0
   m_Name: MothBug
   m_TagString: Untagged
@@ -187,10 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf7bd855574e4b748a23b580040f238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  amplitude: 1
-  frequency: 1
   spawnRoot: {fileID: 0}
+  pathPoints: []
   healthController: {fileID: 0}
   repelForce: 2.5
 --- !u!60 &7913031558344788866
@@ -410,3 +409,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8389843012064989843
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415620405521482482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5fe5a6db07f0ce4b88e616d1724fa4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
