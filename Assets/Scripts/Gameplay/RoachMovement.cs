@@ -16,7 +16,7 @@ public class RoachMovement : MonoBehaviour
     {
         spawnRoot = gameObject.transform.parent.transform;
         // Set the roach's initial localPosition at the left edge of the screen, just above the dirt 
-        transform.localPosition = new Vector3(-2.78f, -1.999926f, 0f); // Y is on top of the dirt
+        transform.localPosition = new Vector3(-2.78f, -2.27f, 0f); // Y is on top of the dirt
 
         // Get the roach's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
@@ -25,11 +25,13 @@ public class RoachMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move the roach horizontally to the right
-        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+        float downwardSpeed = 0.06f;
+
+        // Move the roach horizontally to the right and slightly downward
+        transform.position += new Vector3(speed * Time.deltaTime, -downwardSpeed * Time.deltaTime, 0);
 
         // Destroy the roach if it has gone off-screen
-        if (transform.localPosition.y < -2f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f)
+        if (transform.localPosition.y < -5f || transform.localPosition.x < -8f || transform.localPosition.x > 8f || transform.localPosition.y > 10f)
         {
             Destroy(gameObject);
         }
