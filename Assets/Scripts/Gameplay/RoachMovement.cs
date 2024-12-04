@@ -56,8 +56,11 @@ public class RoachMovement : MonoBehaviour
             // Set flag to prevent multiple heart losses
             hasDamagedPlant = true;
 
-            // Repel the roach downward
-            RepelDownward();
+            // stop normal movement
+            isRepelled = true;
+
+            // Repel the roach downward after a delay 
+            Invoke("RepelDownward", 1f);
         }
     }
 
@@ -72,9 +75,6 @@ public class RoachMovement : MonoBehaviour
 
         // Change the orientation of the roach to point downward
         transform.rotation = Quaternion.Euler(0, 0, 90); // Rotate 90 degrees to make it face downward
-
-        // isRepelled = true means stop normal movement
-        isRepelled = true;
 
         // Adjust Z position to ensure visibility above dirt
         transform.position = new Vector3(transform.position.x, transform.position.y, 15f);
