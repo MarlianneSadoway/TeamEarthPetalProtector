@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaspMovement : MonoBehaviour
 {
     [Header("Wasp Configuration")]
-    public float speed = 3f; // Speed of the wasp   
+    public float speed; // Speed of the wasp   
     public float amplitude = 1.5f; // Amplitude for Z-shape movement
     public float frequency = 5f; // Frequency of the oscillation
     public Transform spawnRoot; // Transform to link bugs to prefab instance
@@ -28,9 +28,6 @@ public class WaspMovement : MonoBehaviour
 
         // Get the wasp's Rigidbody2D component
         rb = GetComponent<Rigidbody2D>(); 
-
-        // Get the HealthController from the scene
-        //healthController = FindObjectOfType<HealthController>();
     }
 
     // Update is called once per frame
