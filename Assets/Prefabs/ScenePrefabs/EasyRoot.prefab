@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beetlePrefab: {fileID: 8415620405521482482, guid: 6d64c27e59ad43d42bc81d199a17f849, type: 3}
   flyPrefab: {fileID: 8415620405521482482, guid: e3c6e4c60afa1824db1a703e4eb4b134, type: 3}
-  waspPrefab: {fileID: 8415620405521482482, guid: e35f4f8db784d66408b820403aa2ebe3, type: 3}
+  waspPrefab: {fileID: 8415620405521482482, guid: 39c921ed89210334297152f98b3e733b, type: 3}
   mothPrefab: {fileID: 8415620405521482482, guid: 84782ca9dafb5a9428365cc7fcfd8896, type: 3}
   spawnInterval: 5
   spawnDuration: 90
