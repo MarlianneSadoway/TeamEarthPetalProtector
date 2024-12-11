@@ -7918,8 +7918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.98, y: -4.66}
-  m_SizeDelta: {x: 3.6723, y: -4.4362}
+  m_AnchoredPosition: {x: -1.0508, y: -4.66}
+  m_SizeDelta: {x: 3.5307, y: -4.4362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5844503964097897273
 CanvasRenderer:
@@ -7949,7 +7949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Credits: Brandon Kinyua, Collette Patalinghog, Mikayla Pichonsky, Marlianne
+  m_text: 'Made by: Brandon Kinyua, Collette Patalinghog, Mikayla Pichonsky, Marlianne
     Sadoway, and Hayden Tougas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
